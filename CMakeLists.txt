@@ -44,7 +44,8 @@ add_custom_target(
 add_executable(saha
 Main.cpp
 IoData.cpp
-ExactRiemannSolverBase.cpp
+SahaEquationSolver.cpp
+AtomicIonizationData.cpp
 Utils.cpp)
 
 # link to libraries

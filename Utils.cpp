@@ -2,7 +2,6 @@
 #include <Utils.h>
 #include <time.h>
 #include <mpi.h>
-#include <version.h>
 #include <stdio.h>
 #include <cstring>
 #include <cmath> //floor
@@ -110,37 +109,6 @@ const string getCurrentDateTime()
 // Print logo 
 void printHeader(int argc, char *argv[])
 {
-  int size, rank;
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  if(!rank) {
-    cout << endl;
-    cout << "\033[0;36m                                      _..._      \033[0m" << endl;
-    cout << "\033[0;36m                      .-''-.       .-'_..._''.   \033[0m" << endl;
-    cout << "\033[0;36m   __  __   ___     .' .-.  )    .' .'      '.\\  \033[0m" << endl;
-    cout << "\033[0;36m  |  |/  `.'   `.  / .'  / /    / .'             \033[0m" << endl;
-    cout << "\033[0;36m  |   .-.  .-.   '(_/   / /    . '               \033[0m" << endl;
-    cout << "\033[0;36m  |  |  |  |  |  |     / /     | |               \033[0m" << endl;
-    cout << "\033[0;36m  |  |  |  |  |  |    / /      | |               \033[0m" << endl;
-    cout << "\033[0;36m  |  |  |  |  |  |   . '       . '               \033[0m" << endl;
-    cout << "\033[0;36m  |  |  |  |  |  |  / /    _.-')\\ '.          .  \033[0m" << endl;
-    cout << "\033[0;36m  |__|  |__|  |__|.' '  _.'.-''  '. `._____.-'/  \033[0m" << endl;
-    cout << "\033[0;36m                 /  /.-'_.'        `-.______ /   \033[0m" << endl;
-    cout << "\033[0;36m                /    _.'                    `    \033[0m" << endl;
-    cout << "\033[0;36m               ( _.-'                            \033[0m" << endl;
-    cout << endl;
-    cout << "Revision: " << GIT_REV << " | " << "Branch: " << GIT_BRANCH << " | " << "Tag: " << GIT_TAG << endl;
-    cout << "Simulation started at: " << getCurrentDateTime() << endl;
-    cout << "Using " << size << " processor cores." << endl;
-    cout << "Command:";
-    for(int i=0; i<argc; i++)
-      cout << " " << argv[i];
-    cout << endl;
-    cout << endl;
-    cout.flush();
-  }
-  MPI_Barrier(MPI_COMM_WORLD);
-  return;
 }
 
 //--------------------------------------------------

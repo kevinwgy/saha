@@ -4,7 +4,7 @@
 #include <VarFcnSG.h>
 #include <VarFcnMG.h>
 #include <VarFcnJWL.h>
-#include <ExactRiemannSolverBase.h>
+#include <SahaEquationSolver.h>
 #include <set>
 using std::cout;
 using std::endl;
@@ -14,6 +14,9 @@ using std::endl;
 int verbose = 0;
 int main(int argc, char* argv[])
 {
+  MPI_Init(NULL, NULL);
+  MPI_Comm comm = MPI_COMM_WORLD;
+
   clock_t start_time = clock(); //for timing purpose only
 
   //! Initialize PETSc and MPI 
@@ -53,39 +56,60 @@ int main(int argc, char* argv[])
   }
 
 
-  ExactRiemannSolverBase riemann(vf, iod.exact_riemann);
-  
-  double Vm[5], Vp[5], V[5];
-  int idm, idp;
-  Vm[0] = iod.bc.inlet.density;
-  Vm[1] = iod.bc.inlet.velocity_x;
-  Vm[2] = 0.0;
-  Vm[3] = 0.0;
-  Vm[4] = iod.bc.inlet.pressure;
-  idm   = iod.bc.inlet.materialid;
-  Vp[0] = iod.bc.outlet.density;
-  Vp[1] = iod.bc.outlet.velocity_x;
-  Vp[2] = 0.0;
-  Vp[3] = 0.0;
-  Vp[4] = iod.bc.outlet.pressure;
-  idp   = iod.bc.outlet.materialid;
+  // Create Saha solvers
+  std::vector<SahaEquationSolver*> saha; //one "saha" for each materialid
 
-  print("Solving a One-Dimensional Riemann Problem...\n");
-  print("Left  State: %e %e %e (MaterialID: %d).\n",Vm[0],Vm[1],Vm[4],idm);
-  print("Right State: %e %e %e (MaterialID: %d).\n",Vp[0],Vp[1],Vp[4],idp);
-
-
-  if(argc==5) {//plot p-u relation
-    double pmin = atof(argv[2]);
-    double pmax = atof(argv[3]);
-    double dp   = atof(argv[4]);
-    riemann.PrintStarRelations(Vm[0], Vm[1], Vm[4], idm, Vp[0], Vp[1], Vp[4], idp, pmin, pmax, dp);
-    print("Printed the star state relations.\n");
+  if(iod.ion.materialMap.dataMap.size() == 0) {
+    print_error("*** Error: Unable to create ionization operator. No models specified in the input file.\n");
+    exit_mpi();
+  }
+  int nMat = vf.size();
+  saha.resize(nMat, NULL);
+  for(auto it = iod.ion.materialMap.dataMap.begin(); it != iod.ion.materialMap.dataMap.end(); it++) {
+    if(it->first<0 || it->first>=nMat) {
+      print_error("*** Error: Ionization model specified for an unknown material id (%d).\n", it->first);
+      exit_mpi();
+    }
+    print("- Initializing Saha Equation solver for material %d.\n", it->first);
+    saha[it->first] = new SahaEquationSolver(*(it->second), iod, vf[it->first], &comm);
+  }
+  for(int i=0; i<saha.size(); i++) { //create dummy solvers for materials w/o ionization model
+    if(saha[i] == NULL)
+      saha[i] = new SahaEquationSolver(iod, vf[i]);
   }
 
+
+  double V[5];
   int id;
-  double Vsm[5], Vsp[5];
-  riemann.ComputeRiemannSolution(0, Vm, idm, Vp, idp, V, id, Vsm, Vsp);
+  V[0] = iod.bc.inlet.density;
+  V[1] = iod.bc.inlet.velocity_x;
+  V[2] = iod.bc.inlet.velocity_y;
+  V[3] = iod.bc.inlet.velocity_z;
+  V[4] = iod.bc.inlet.pressure;
+  id   = iod.bc.inlet.materialid;
+
+  print("Solving the Saha Ionization Equation...\n");
+  print("Input: density = %e, pressure = %e (MaterialID: %d).\n",V[0],V[4],id);
+
+  int max_charge_in_output = iod.output.max_charge_number;
+
+  std::map<int, vector<double> > nodal_alphas;
+  for(int iSpecies=0; iSpecies<OutputData::MAXSPECIES; iSpecies++) 
+    if(iod.output.molar_fractions[iSpecies] == OutputData::ON) 
+      nodal_alphas[iSpecies] = vector<double>(max_charge_in_output+2);
+
+  double zav, nh, ne;
+  saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
+
+  print("\n");
+  print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);
+  for(auto it = nodal_alphas.begin(); it != nodal_alphas.end(); it++) {
+    print("  - Species %d:\n", it->first);
+    for(int i=0; i<it->second.size()-1; i++)
+      print("    o Molar fraction of charged state %d: %e.\n", i, it->second[i]);
+    print("    o Molar fraction of charged state %d+: %e.\n", it->second.size()-1, it->second[it->second.size()-1]);
+  }
+
 
   print("\n");
   print("\033[0;32m==========================================\033[0m\n");
@@ -96,6 +120,10 @@ int main(int argc, char* argv[])
 
   for(int i=0; i<vf.size(); i++)
     delete vf[i];
+
+  for(auto it = saha.begin(); it != saha.end(); it++)
+    if(*it)
+      delete *it;
 
   return 0;
 }
