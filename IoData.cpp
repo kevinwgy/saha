@@ -16,6 +16,8 @@
 //#include <dlfcn.h>
 using namespace std;
 
+double avogadro_number = 6.02214076e23;
+
 RootClassAssigner *nullAssigner = new RootClassAssigner;
 
 //------------------------------------------------------------------------------
@@ -1913,13 +1915,14 @@ void LaserData::setup(const char *name, ClassAssigner *father) {
 AtomicIonizationModel::AtomicIonizationModel()
 {
   molar_fraction = -1.0;
+  molar_mass = -1.0;
   atomic_number = -1;
   max_charge = 10;
   ionization_energy_filename = "";
   excitation_energy_files_prefix = "";
   excitation_energy_files_suffix = "";
-  angular_momentum_files_prefix = ""; 
-  angular_momentum_files_suffix = ""; 
+  degeneracy_files_prefix = ""; 
+  degeneracy_files_suffix = ""; 
 }
 
 //------------------------------------------------------------------------------
@@ -1927,10 +1930,13 @@ AtomicIonizationModel::AtomicIonizationModel()
 Assigner* AtomicIonizationModel::getAssigner()
 {
 
-  ClassAssigner *ca = new ClassAssigner("normal", 8, nullAssigner);
+  ClassAssigner *ca = new ClassAssigner("normal", 9, nullAssigner);
 
   new ClassDouble<AtomicIonizationModel>(ca, "MolarFraction", this, 
           &AtomicIonizationModel::molar_fraction);
+  
+  new ClassDouble<AtomicIonizationModel>(ca, "MolarMass", this, 
+          &AtomicIonizationModel::molar_mass);
   
   new ClassInt<AtomicIonizationModel>(ca, "AtomicNumber", this, 
           &AtomicIonizationModel::atomic_number);
@@ -1947,11 +1953,11 @@ Assigner* AtomicIonizationModel::getAssigner()
   new ClassStr<AtomicIonizationModel>(ca, "ExcitationEnergyFilesSuffix", this, 
           &AtomicIonizationModel::excitation_energy_files_suffix);
 
-  new ClassStr<AtomicIonizationModel>(ca, "AngularMomentumFilesPrefix", this, 
-          &AtomicIonizationModel::angular_momentum_files_prefix);
+  new ClassStr<AtomicIonizationModel>(ca, "DegeneracyFilesPrefix", this, 
+          &AtomicIonizationModel::degeneracy_files_prefix);
 
-  new ClassStr<AtomicIonizationModel>(ca, "AngularMomentumFilesSuffix", this, 
-          &AtomicIonizationModel::angular_momentum_files_suffix);
+  new ClassStr<AtomicIonizationModel>(ca, "DegeneracyFilesSuffix", this, 
+          &AtomicIonizationModel::degeneracy_files_suffix);
 
   return ca;
 
@@ -1965,17 +1971,20 @@ MaterialIonizationModel::MaterialIonizationModel()
   maxIts = 200;
   convergence_tol = 1.0e-5;
 
+  ionization_Tmin = 400; //Kelvin
+
   partition_evaluation = CUBIC_SPLINE_INTERPOLATION;
-  sample_size = 150;
-  Tmin = 10.0; //10 Kelvin
-  Tmax = 1.0e10; //Kelvin
+
+  sample_size = 6000;
+  sample_Tmin = 10.0; //Kelvin
+  sample_Tmax = 1.0e10; //Kelvin
 }
 
 //------------------------------------------------------------------------------
 
 Assigner* MaterialIonizationModel::getAssigner()
 {
-  ClassAssigner *ca = new ClassAssigner("normal", 8, nullAssigner);
+  ClassAssigner *ca = new ClassAssigner("normal", 9, nullAssigner);
 
   new ClassToken<MaterialIonizationModel> (ca, "Type", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::type), 
@@ -1986,10 +1995,13 @@ Assigner* MaterialIonizationModel::getAssigner()
         3, "OnTheFly", 0, "CubicSplineInterpolation", 1, "LinearInterpolation", 2);
 
   new ClassDouble<MaterialIonizationModel>(ca, "Tmin", this, 
-        &MaterialIonizationModel::Tmin);
+        &MaterialIonizationModel::ionization_Tmin);
 
-  new ClassDouble<MaterialIonizationModel>(ca, "Tmax", this, 
-        &MaterialIonizationModel::Tmax);
+  new ClassDouble<MaterialIonizationModel>(ca, "SampleTmin", this, 
+        &MaterialIonizationModel::sample_Tmin);
+
+  new ClassDouble<MaterialIonizationModel>(ca, "SampleTmax", this, 
+        &MaterialIonizationModel::sample_Tmax);
 
   new ClassInt<MaterialIonizationModel>(ca, "SampleSize", this, &MaterialIonizationModel::sample_size);
 

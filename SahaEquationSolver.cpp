@@ -6,6 +6,8 @@ using std::vector;
 using std::map;
 using std::pair;
 
+extern double avogadro_number;
+
 //--------------------------------------------------------------------------
 
 SahaEquationSolver::SahaEquationSolver(IoData& iod_, VarFcnBase* vf_)
@@ -31,7 +33,7 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
     exit_mpi();
   }
 
-  Tmin = iod_ion_mat->Tmin;
+  Tmin = iod_ion_mat->ionization_Tmin;
   if(Tmin<=0) {
     print_error("*** Error: Detected Tmin = %e in material ionization model. Must be positive.\n", Tmin);
     exit_mpi();
@@ -40,6 +42,7 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
   // Read element data
   int numElems = iod_ion_mat->elementMap.dataMap.size();
   elem.resize(numElems, AtomicIonizationData());
+  double total_molar = 0.0;
   for(auto it = iod_ion_mat->elementMap.dataMap.begin(); 
       it != iod_ion_mat->elementMap.dataMap.end(); it++) {
     int element_id = it->first;
@@ -49,24 +52,38 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
       exit_mpi();
     }
 
+    total_molar += it->second->molar_fraction;
 
     AtomicIonizationData& data(elem[it->first]);
     if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::CUBIC_SPLINE_INTERPOLATION)
-      data.Setup(it->second, h, e, me, kb, 1, iod_ion_mat->Tmin, iod_ion_mat->Tmax, iod_ion_mat->sample_size, comm);
+      data.Setup(it->second, h, e, me, kb, 1, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
+                 iod_ion_mat->sample_size, comm);
     else if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::LINEAR_INTERPOLATION)
-      data.Setup(it->second, h, e, me, kb, 2, iod_ion_mat->Tmin, iod_ion_mat->Tmax, iod_ion_mat->sample_size, comm);
+      data.Setup(it->second, h, e, me, kb, 2, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
+                 iod_ion_mat->sample_size, comm);
     else if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::ON_THE_FLY)
-      data.Setup(it->second, h, e, me, kb, 0, iod_ion_mat->Tmin, iod_ion_mat->Tmax, 0, NULL);
+      data.Setup(it->second, h, e, me, kb, 0, 0, 0, 0, NULL);
     else {
       print_error("*** Error: Detected an unknown method for partition function evaluation.\n");
       exit_mpi();
     }
   }
 
-  // find max atomic number among all the species/elements
+  if(total_molar >= 1.0 + 1e-12) {
+    print_error("*** Error: Sum of molar fractions (%e) exceeds 1.\n", total_molar);
+    exit_mpi();
+  }
+  if(total_molar <= 1.0 - 1e-12) //throw out a warning, but continue to run
+    print("Warning: Sum of molar fractions (%e) is less than 1.\n", total_molar);
+
+
+  // find molar mass and max atomic number among all the species/elements
+  molar_mass = 0.0;
   max_atomic_number = 0;
-  for(auto it = elem.begin(); it != elem.end(); it++)
+  for(auto it = elem.begin(); it != elem.end(); it++) {
+    molar_mass += (it->molar_fraction)*(it->molar_mass);
     max_atomic_number = std::max(max_atomic_number, it->atomic_number);
+  }
 
 }
 
@@ -81,13 +98,12 @@ void
 SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne, 
                           map<int, vector<double> >& alpha_rj)
 {
-
-  double T = vf->GetTemperature(v[0], vf->GetInternalEnergyPerUnitMass(v[0], v[4]));
-  nh = v[4]/(kb*T);
+  //nh = T>0 ? v[4]/(kb*T) : 0; //for dummy solver, there may not be a temperature law --> T = 0
 
   if(!iod_ion_mat) { //dummy solver 
     zav = 0.0;
     ne = 0.0;
+    nh = 0.0;
     for(auto it = alpha_rj.begin(); it != alpha_rj.end(); it++) {
       vector<double> &alpha = it->second;
       for(int r=0; r<alpha.size(); r++)
@@ -95,6 +111,10 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
     }
     return;
   }
+
+
+  double T = vf->GetTemperature(v[0], vf->GetInternalEnergyPerUnitMass(v[0], v[4]));
+  nh = v[0]/molar_mass*avogadro_number;
 
   if(T<=Tmin) { //no ionization
     zav = 0.0;
@@ -110,7 +130,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
   // ------------------------------
   // Step 1: Solve for Zav 
   // ------------------------------
-  ZavEquation fun(kb, T, v[4], me, h, elem);
+  ZavEquation fun(kb, T, nh, me, h, elem);
 
   //Find initial bracketing interval (zav0, zav1)
   double zav0, zav1, f0, f1; 
@@ -150,7 +170,9 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
   assert(zav>0.0);
   //*******************************************************************
 
+#if DEBUG_SAHA_SOLVER == 1
   fprintf(stderr,"-- Saha equation solver converged in %d iterations, Zav = %e.\n", (int)maxit, zav);
+#endif
 
   //post-processing.
   ne = zav*nh;
@@ -161,39 +183,40 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
 
     double zej = fun.GetZej(zav, j);
     double denom = 0.0;
-    double ne_power = 1.0;
+    double zav_power = 1.0;
     for(int i=1; i<=elem[j].rmax; i++) {
-      ne_power *= ne;
-      denom += (double)i/ne_power*fun.GetFProd(i,j);
+      zav_power *= zav;
+      denom += (double)i/zav_power*fun.GetFProd(i,j);
     }
     assert(denom>0.0);
     alpha[0] = zej/denom;
  
     for(int r=1; r<alpha.size()-1; r++)
-      alpha[r] = alpha[r-1]/ne*fun.GetFProd(r,j)/fun.GetFProd(r-1,j);
+      alpha[r] = (r<=elem[j].rmax) ? alpha[r-1]/zav*fun.GetFProd(r,j)/fun.GetFProd(r-1,j) : 0.0;
 
-    alpha[alpha.size()-1] = elem[j].molar_fraction;
-    for(int r=0; r<alpha.size()-1; r++)
-      alpha[alpha.size()-1] -= alpha[r];
+    int last_one = alpha.size()-1; 
+    alpha[last_one] = elem[j].molar_fraction;
+    for(int r=0; r<last_one; r++)
+      alpha[last_one] -= alpha[r];
 
-    assert(alpha[alpha.size()-1]>=0.0);
-
+    assert(alpha[last_one]>=-1.0e-10); //allow some roundoff error
+    if(alpha[last_one]<0)
+      alpha[last_one] = 0;
   }
 
 }
 
 //--------------------------------------------------------------------------
 
-SahaEquationSolver::ZavEquation::ZavEquation(double kb, double T, double p, double me, double h, 
+SahaEquationSolver::ZavEquation::ZavEquation(double kb, double T, double nh, double me, double h, 
                                              vector<AtomicIonizationData>& elem_)
                                : elem(elem_)
 {
 
-  double pi = 2.0*acos(0);
   double kbT = kb*T;
-  double fcore = pow( (2.0*pi*me*kbT)/(h*h), 1.5);
 
-  nh = p/kbT;
+  double pi = 2.0*acos(0);
+  double fcore = pow( (2.0*pi*(me/h)*(kbT/h)), 1.5)/nh;
 
   // compute fprod
   fprod.resize(elem.size(), vector<double>());
@@ -209,7 +232,15 @@ SahaEquationSolver::ZavEquation::ZavEquation(double kb, double T, double p, doub
     for(int r=0; r<elem[j].rmax; r++) {
       Ur1 = elem[j].CalculatePartitionFunction(r+1, T);
       f1 = 2.0*Ur1/Ur0*fcore*exp(-elem[j].I[r]/kbT);
+      //if(j==1) fprintf(stderr,"f(%d,%d) = %e, Ur1 = %e, Ur0 = %e, exp = %e.\n", r+1, j, f1, Ur1, Ur0, exp(-elem[j].I[r]/kbT));
       fprod[j][r+1] = fprod[j][r]*f1;
+
+      if(fprod[j][r+1]<0) {
+        print_error("*** Error: Negative partition function (%e) in Saha equation solver. "
+                    "Input error or small sample size.\n", fprod[j][r+1]); 
+        exit_mpi();
+      }
+
       Ur0 = Ur1;
     }
   } 
@@ -235,26 +266,26 @@ SahaEquationSolver::ZavEquation::ComputeRHS_ElementJ(double zav, int j)
 {
 
   if(zav == 0.0) //special case
-      return elem[j].molar_fraction*elem[j].rmax;
+    return elem[j].molar_fraction*elem[j].rmax;
 
   // zav != 0
-  double ne = zav*nh;
 
   double denominator = 0.0;
   double numerator = 0.0;
-  double ne_power = 1.0;
+  double zav_power = 1.0;
 
   double ith_term;
 
   for(int i=elem[j].rmax; i>=1; i--) {
-    ith_term     = ne_power*fprod[j][i];
+    ith_term     = fprod[j][i]*zav_power;
     numerator   += (double)i*ith_term;
     denominator += ith_term;
 
-    ne_power *= ne;
+    zav_power *= zav;
   } 
 
-  denominator += ne_power;
+  denominator += zav_power;
+
 
   return elem[j].molar_fraction*numerator/denominator;
 

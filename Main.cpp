@@ -8,6 +8,11 @@
 #include <set>
 using std::cout;
 using std::endl;
+
+//#include<chrono> //for timing only
+//using namespace std::chrono;
+
+
 /*************************************
  * Main Function
  ************************************/
@@ -90,6 +95,8 @@ int main(int argc, char* argv[])
 
   print("Solving the Saha Ionization Equation...\n");
   print("Input: density = %e, pressure = %e (MaterialID: %d).\n",V[0],V[4],id);
+  double e = vf[id]->GetInternalEnergyPerUnitMass(V[0], V[4]);
+  print("By EOS: e = %e, T = %e.\n", e, vf[id]->GetTemperature(V[0], e));
 
   int max_charge_in_output = iod.output.max_charge_number;
 
@@ -99,7 +106,19 @@ int main(int argc, char* argv[])
       nodal_alphas[iSpecies] = vector<double>(max_charge_in_output+2);
 
   double zav, nh, ne;
+
   saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
+
+/*
+// Timing
+  auto start = high_resolution_clock::now();
+  for(int counter = 0; counter < 10000; counter++)
+    saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+  double cost = duration.count();
+  print(stderr,"cost is %e us.\n", cost);
+*/
 
   print("\n");
   print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);

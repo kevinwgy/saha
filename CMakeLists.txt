@@ -38,7 +38,7 @@ add_custom_target(
 )
 
 # define the macro that allows 1D Riemann solver to output solution
-#add_compile_definitions(PRINT_RIEMANN_SOLUTION=1)
+add_compile_definitions(DEBUG_SAHA_SOLVER=1)
 
 # add the executable
 add_executable(saha
