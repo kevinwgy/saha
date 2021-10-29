@@ -836,7 +836,7 @@ struct Probes {
 
   enum Vars  {DENSITY = 0, VELOCITY_X = 1, VELOCITY_Y = 2, VELOCITY_Z = 3, PRESSURE = 4, TEMPERATURE = 5, 
               DELTA_TEMPERATURE = 6, MATERIALID = 7, LASERRADIANCE = 8, LEVELSET0 = 9, LEVELSET1 = 10, 
-              LEVELSET2 = 11, LEVELSET3 = 12, LEVELSET4 = 13, SIZE = 14};
+              LEVELSET2 = 11, LEVELSET3 = 12, LEVELSET4 = 13, IONIZATION = 14, SIZE = 15};
 
   const char *density;
   const char *velocity_x;
@@ -852,6 +852,7 @@ struct Probes {
   const char *levelset2;
   const char *levelset3;
   const char *levelset4;
+  const char *ionization_result;
 
   Probes();
   ~Probes() {}

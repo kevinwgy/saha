@@ -199,7 +199,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
   //*******************************************************************
 
 #if DEBUG_SAHA_SOLVER == 1
-  fprintf(stderr,"-- Saha equation solver converged in %d iterations, Zav = %e.\n", (int)maxit, zav);
+  fprintf(stderr,"-- Saha equation solver converged in %d iterations, Zav = %.12e.\n", (int)maxit, zav);
 #endif
 
   //post-processing.
@@ -244,7 +244,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
       alpha[last_one] -= alpha[r];
 
     //allow some roundoff error
-    assert(alpha[last_one]>=-1.0e-8);
+    //assert(alpha[last_one]>=-1.0e-4);
     if(alpha[last_one]<0)
       alpha[last_one] = 0;
   }

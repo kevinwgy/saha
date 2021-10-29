@@ -2242,6 +2242,7 @@ Probes::Probes() {
   levelset2 = "";
   levelset3 = "";
   levelset4 = "";
+  ionization_result = "";
 
 }
 
@@ -2250,7 +2251,7 @@ Probes::Probes() {
 void Probes::setup(const char *name, ClassAssigner *father)
 {
 
-  ClassAssigner *ca = new ClassAssigner(name, 17, father);
+  ClassAssigner *ca = new ClassAssigner(name, 18, father);
 
   new ClassInt<Probes>(ca, "Frequency", this, &Probes::frequency);
   new ClassDouble<Probes>(ca, "TimeInterval", this, &Probes::frequency_dt);
@@ -2268,6 +2269,7 @@ void Probes::setup(const char *name, ClassAssigner *father)
   new ClassStr<Probes>(ca, "LevelSet2", this, &Probes::levelset2);
   new ClassStr<Probes>(ca, "LevelSet3", this, &Probes::levelset3);
   new ClassStr<Probes>(ca, "LevelSet4", this, &Probes::levelset4);
+  new ClassStr<Probes>(ca, "IonizationResult", this, &Probes::ionization_result);
 
   myNodes.setup("Node", ca);
 
