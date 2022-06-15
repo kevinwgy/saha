@@ -17,10 +17,13 @@ using std::endl;
  * Main Function
  ************************************/
 int verbose = 0;
+MPI_Comm m2c_comm;
 int main(int argc, char* argv[])
 {
   MPI_Init(NULL, NULL);
   MPI_Comm comm = MPI_COMM_WORLD;
+
+  m2c_comm = MPI_COMM_WORLD;
 
   clock_t start_time = clock(); //for timing purpose only
 

@@ -172,9 +172,9 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
       // fail-safe
       if(trial>0) break;
 
-      if(isnan(sol.first) || sol.first<0)
+      if(!isfinite(sol.first) || sol.first<0)
         sol.first = 0.0;
-      if(isnan(sol.second) || sol.second<sol.first)
+      if(!isfinite(sol.second) || sol.second<sol.first)
         sol.second = zav1;
       zav0 = sol.first;
       zav1 = sol.second;
@@ -264,7 +264,7 @@ SahaEquationSolver::ZavEquation::ZavEquation(double kb, double T, double nh, dou
   double fcore = pow( (2.0*pi*(me/h)*(kbT/h)), 1.5)/nh;
 
   // compute fprod
-  fprod.resize(elem.size(), vector<double>());
+  fprod.assign(elem.size(), vector<double>());
   double Ur0, Ur1, f1;
   for(int j=0; j<fprod.size(); j++) {
 

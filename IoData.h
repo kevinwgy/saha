@@ -10,8 +10,6 @@
 #include <Utils.h>
 
 using std::map;
-using std::pair;
-using std::vector;
 
 /*********************************************************************
  * class IoData reads and processes the input data provided by the user
@@ -48,6 +46,7 @@ struct StateVariable {
   double velocity_z;
   double pressure;
   double temperature;
+  double internal_energy_per_mass;
 
   StateVariable();
   ~StateVariable() {}
@@ -205,9 +204,20 @@ struct StiffenedGasModelData {
   double pressureConstant;
 
   //! parameters related to temperature
+  //! Method 1: Assume constant cv or cp, and T as a function of only e.
   double cv; //!< specific heat at constant volume
   double T0;  //!< temperature is T0 when internal energy (per mass) is e0
-  double e0;
+  double e0;  //!< internal energy per specific mass at T0
+
+  double cp; //!< specific heat at constant pressure
+  double h0; //!< enthalpy per specific mass at T0
+  //NOTE: For stiffened (non-perfect) gas, calculating temperature using (cv, T0, e0) is NOT
+  //      equivalent to using (cp, T0, h0). See KW's note. By default, cv is used. But if cv
+  //      is 0 while cp>0, cp will be used.
+ 
+  //! Method 2: Assume constant cv, but T depends on both e and rho.
+  double rho0; //!< for temperature calculation. If specified (>0) and cv>0, will activate the
+               //!< temperature law that depends on both rho and e
 
   StiffenedGasModelData();
   ~StiffenedGasModelData() {}
@@ -226,7 +236,12 @@ struct MieGruneisenModelData {
   double s;
   double e0;
 
-  double cv; 
+  //! parameters related to temperature
+  double cv; //!< specific heat at constant volume
+  double T0;  //!< temperature is T0 when internal energy (per mass) is e0
+
+  double cp; //!< specific heat at constant pressure
+  double h0; //!< enthalpy per specific mass at T0
 
   MieGruneisenModelData();
   ~MieGruneisenModelData() {}
@@ -279,12 +294,29 @@ struct ViscosityModelData {
 
 //------------------------------------------------------------------------------
 
+struct HeatDiffusionModelData {
+
+  enum Type {NONE = 0, CONSTANT = 1} type;
+
+  // constant
+  double diffusivity;
+
+  HeatDiffusionModelData();
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
 struct MaterialModelData {
 
   int id;
   enum EOS {STIFFENED_GAS = 0, MIE_GRUNEISEN = 1, JWL = 2} eos;
   double rhomin;
   double pmin;
+  double rhomax;
+  double pmax;
 
   double failsafe_density; //for updating phase change -- last resort
 
@@ -293,6 +325,8 @@ struct MaterialModelData {
   JonesWilkinsLeeModelData jwlModel;
 
   ViscosityModelData viscosity;
+
+  HeatDiffusionModelData heat_diffusion;
 
   MaterialModelData();
   ~MaterialModelData() {}
@@ -328,6 +362,8 @@ struct EquationsData {
   ObjectMap<MaterialModelData> materials;
 
   ObjectMap<MaterialTransitionData> transitions;
+
+  StateVariable dummy_state; //!< for "inactive" nodes
 
   EquationsData();
   ~EquationsData() {}
@@ -472,12 +508,11 @@ struct LevelSetSchemeData {
 
   enum Flux {ROE = 0, LOCAL_LAX_FRIEDRICHS = 1, UPWIND = 2} flux;
   ReconstructionData rec;
+  double delta; //! The coeffient in Harten's entropy fix.
 
   enum BcType {NONE = 0, ZERO_NEUMANN = 1, LINEAR_EXTRAPOLATION = 2, NON_NEGATIVE = 3, SIZE = 4};
   BcType bc_x0, bc_xmax, bc_y0, bc_ymax, bc_z0, bc_zmax;
-
   
-  double delta; //! The coeffient in Harten's entropy fix.
 
   int bandwidth; //number of layers of nodes on each side of interface
 
@@ -511,6 +546,7 @@ struct SchemesData {
 struct ExactRiemannSolverData {
 
   int maxIts_main;
+  int maxIts_bracket;
   int maxIts_shock;
   int numSteps_rarefaction;
   double tol_main;
@@ -540,7 +576,25 @@ struct MultiPhaseData {
 
   enum ReconstructionAtInterface {CONSTANT = 0, LINEAR = 1} recon;
 
+  double conRec_depth; //!< depth (fabs(phi)) where constant reconstruction is applied (default: 0)
+
   enum PhaseChangeType {RIEMANN_SOLUTION = 0, EXTRAPOLATION = 1} phasechange_type;
+
+  enum PhaseChangeDirection {ALL = 0, UPWIND = 1} phasechange_dir;
+
+  enum RiemannNormal {LEVEL_SET = 0, MESH = 1, AVERAGE = 2} riemann_normal;
+
+  enum OnOff {Off = 0, On = 1};
+  OnOff latent_heat_transfer; //!< whether stored latent heat would be added to the enthalpy
+                              //Note: In the case of a "physical" phase transition, the
+                              //      latent heat is always added to the enthalpy. The option here
+                              //      is about whether this operation will be done if a phase
+                              //      change occurs due to the motion of material interface(s).
+
+  int levelset_correction_frequency; //!< frequency of eliminating small gaps or inconsistencies
+                                     //   between multiple level set functions
+
+  OnOff apply_failsafe_density;
 
   MultiPhaseData();
   ~MultiPhaseData() {}
@@ -655,11 +709,19 @@ struct BcsData {
 
 struct IcData {
 
+  //-----------------------------------------------------------------------
   //! initial condition specified using simple geometric entities (e.g., point, plane,)
   MultiInitialConditionsData multiInitialConditions;
+  //-----------------------------------------------------------------------
 
+  //-----------------------------------------------------------------------
   //! user-specified file
   const char *user_specified_ic;
+
+  enum YesNo {NO = 0, YES = 1} apply_user_file_before_geometries;
+
+  enum RadialBasisFunction {MULTIQUADRIC = 0, INVERSE_MULTIQUADRIC = 1, 
+                            THIN_PLATE_SPLINE = 2, GAUSSIAN = 3} rbf; //radial basis function for interpolation
 
   enum Type {NONE = 0, PLANAR = 1, CYLINDRICAL = 2, SPHERICAL = 3, 
              GENERALCYLINDRICAL = 4} type;
@@ -674,9 +736,10 @@ struct IcData {
 
   int specified[SIZE];  //!< 0~unspecified, 1~specified
 
-  vector<double> user_data[SIZE];
+  std::vector<double> user_data[SIZE];
 
-  vector<double> user_data2[SIZE]; //!< for radial variation 
+  std::vector<double> user_data2[SIZE]; //!< for radial variation 
+  //-----------------------------------------------------------------------
 
   IcData();
   ~IcData() {}
@@ -723,13 +786,16 @@ struct LaserData {
   double lmin; //!< inside the laser domain (and ghosts), L>=lmin. (should be a tiny pos number.)
   ObjectMap<LaserAbsorptionCoefficient> abs; //!< absorption coefficients
 
+  // parallel solution approach
+  enum Parallelization {ORIGINAL = 0, BALANCED = 1} parallel;
+  int min_cells_per_core;
+
   // numerical parameters
   double source_depth;
   double alpha;
   double convergence_tol;
   double max_iter;
   double relax_coeff;
-  int oneWay;
 
   LaserData();
   ~LaserData() {}
@@ -800,6 +866,7 @@ struct IonizationData {
   double electron_charge; //needed?
   double electron_mass;
   double boltzmann_constant;
+  double vacuum_permittivity;
   
   ObjectMap<MaterialIonizationModel> materialMap;
   
@@ -894,6 +961,38 @@ struct MaterialVolumes {
   void setup(const char *, ClassAssigner * = 0);
 };
 
+
+//------------------------------------------------------------------------------
+
+struct TerminalVisualizationData {
+
+  enum ColorMap {GRAYSCALE = 0, TURBO = 1} colormap;
+
+  enum Plane {NONE = 0, YZ = 1, XZ = 2, XY = 3} plane;
+  double coordinate;
+
+  const char *filename; //!< filename with path (if not specified, print to the screen (stdout))
+
+  enum Vars  {DENSITY = 0, VELOCITY = 1, PRESSURE = 2, TEMPERATURE = 3, 
+              MATERIALID = 4, LASERRADIANCE = 5, LEVELSET0 = 6, LEVELSET1 = 7, 
+              MEANCHARGE = 8}  variable;
+
+  double horizontal_min, horizontal_max;
+  double vertical_min, vertical_max;
+  double dx;
+  
+  int frequency;
+  double frequency_dt; //!< -1 by default. To activate it, set it to a positive number
+  double frequency_clocktime; //!< clock time, in seconds
+  double pause; //!< pause after printing each snapshot, relevant only if filename is stdout or stderr 
+
+  TerminalVisualizationData();
+  ~TerminalVisualizationData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
 //------------------------------------------------------------------------------
 
 struct OutputData {
@@ -902,7 +1001,8 @@ struct OutputData {
   const char *solution_filename_base; //!< filename without path
 
   enum Options {OFF = 0, ON = 1};
-  Options density, velocity, pressure, materialid, internal_energy, temperature, delta_temperature, laser_radiance;
+  Options density, velocity, pressure, materialid, internal_energy, delta_internal_energy,
+          temperature, delta_temperature, laser_radiance;
 
   enum VerbosityLevel {LOW = 0, MEDIUM = 1, HIGH = 2} verbose;
 
@@ -942,8 +1042,167 @@ struct OutputData {
 
   const char *mesh_filename; //!< file for nodal coordinates
 
+  const char *mesh_partition; //!< file for nodal coordinates
+
   OutputData();
   ~OutputData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+};
+
+//------------------------------------------------------------------------------
+
+struct LagrangianMeshOutputData {
+
+  int frequency;
+  double frequency_dt; //!< -1 by default. To activate it, set it to a positive number
+
+  const char* prefix; //!< path
+
+  const char* orig_config; //!< original mesh
+  const char* disp; //!< displacement
+  const char* sol; //!< solution
+
+  LagrangianMeshOutputData();
+  ~LagrangianMeshOutputData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+
+//NOTE Currently, Embedded surface must use triangle elements.
+struct EmbeddedSurfaceData {
+
+  //! general information
+  enum Type {None = 0, Wall = 1, Symmetry = 2, DirectState = 3, MassFlow = 4, PorousWall = 5,
+             Size = 6} type;
+  enum YesNo {NO = 0, YES = 1} provided_by_another_solver;
+  const char *filename; //!< file for nodal coordinates and elements
+  enum ThermalCondition {Adiabatic = 0, Isothermal = 1, Source = 2} thermal;
+  double heat_source;
+
+  const char *wetting_output_filename; //!< optional output file that shows the detected wetted side(s)
+
+  double surface_thickness;
+
+  //! tools
+  const char *dynamics_calculator;
+
+  //! force calculation (NONE: force is 0, i.e. one-way coupling)
+  enum GaussQuadratureRule {NONE = 0, ONE_POINT = 1, THREE_POINT = 2, FOUR_POINT = 3,
+                            SIX_POINT = 4} quadrature;
+  double gauss_points_lofting; //!< non-dimensional, relative to local element size
+  double internal_pressure; //!< pressure applied on the inactive side (i.e. inside solid body)
+
+  //! flux calculation
+  double conRec_depth; //!< depth (dimensional) where constant reconstruction is applied (default: 0)
+
+
+  //! output displacement and nodal load
+  LagrangianMeshOutputData output;
+
+
+  EmbeddedSurfaceData();
+  ~EmbeddedSurfaceData() {}
+
+  Assigner *getAssigner();
+
+};
+
+//------------------------------------------------------------------------------
+
+struct EmbeddedSurfacesData {
+
+  ObjectMap<EmbeddedSurfaceData> surfaces;
+
+
+  EmbeddedSurfacesData();
+  ~EmbeddedSurfacesData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct EmbeddedBoundaryMethodData {
+
+  EmbeddedSurfacesData embed_surfaces;
+
+  //! normal direction used to construct the 1D Riemann solver 
+  enum RiemannNormal {EMBEDDED_SURFACE = 0, MESH = 1, AVERAGE = 2} riemann_normal;
+
+  enum ReconstructionAtInterface {CONSTANT = 0, LINEAR = 1} recon;
+
+  EmbeddedBoundaryMethodData();
+  ~EmbeddedBoundaryMethodData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+  
+};
+
+//------------------------------------------------------------------------------
+
+struct AerosCouplingData {
+
+  enum FSICouplingAlgorithm {NONE = 0, BY_AEROS = 1, C0 = 2, A6 = 3} fsi_algo;
+
+  AerosCouplingData();
+  ~AerosCouplingData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct ConcurrentProgramsData {
+
+  AerosCouplingData aeros;
+
+  ConcurrentProgramsData();
+  ~ConcurrentProgramsData() {} 
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct TransientInputData {
+
+  const char* metafile;
+  const char* snapshot_file_prefix; 
+  const char* snapshot_file_suffix; 
+  
+  enum BasisFunction {MULTIQUADRIC = 0, INVERSE_MULTIQUADRIC = 1, 
+                      THIN_PLATE_SPLINE = 2, GAUSSIAN = 3, SIZE = 4} basis; //basis function for interpolation
+  int numPoints; //number of points for (unstructured) interpolation
+
+  LagrangianMeshOutputData output;
+
+  TransientInputData();
+  ~TransientInputData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct SpecialToolsData {
+
+  enum Type {NONE = 0, DYNAMIC_LOAD_CALCULATION = 1, SIZE = 2} type;
+  
+  TransientInputData transient_input;
+
+  SpecialToolsData();
+  ~SpecialToolsData() {}
 
   void setup(const char *, ClassAssigner * = 0);
 };
@@ -956,6 +1215,10 @@ class IoData {
   FILE *cmdFilePtr;
 
 public:
+
+  ConcurrentProgramsData concurrent;
+
+  EmbeddedBoundaryMethodData ebm;
 
   MeshData mesh;
 
@@ -977,6 +1240,10 @@ public:
 
   OutputData output;
 
+  SpecialToolsData special_tools;
+
+  TerminalVisualizationData terminal_visualization;
+
 public:
 
   IoData() {}
@@ -986,6 +1253,7 @@ public:
   void readCmdLine(int, char**);
   void setupCmdFileVariables();
   void readCmdFile();
+  void finalize();
 
 };
 #endif
