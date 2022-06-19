@@ -6,13 +6,15 @@
 
 //----------------------------------------------------------------
 // Class SahaEquationSolver is responsible for solving the ideal
-// or non-ideal Saha equation for one material (w/ a fixed id)
+// Saha equation for one material (w/ a fixed id)
 // Input: v and id 
 // Output: Zav, ne, nh, alphas.
 // (A dummy solver is defined for materials not undergoing ionization)
 //----------------------------------------------------------------
 
 class SahaEquationSolver {
+
+protected: //should be accessible for derived classes
 
   // constants
   double h; //!< planck_constant; 
@@ -39,9 +41,9 @@ public:
 
   SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, IoData& iod_, VarFcnBase* vf_, MPI_Comm* comm);
 
-  ~SahaEquationSolver();
+  virtual ~SahaEquationSolver();
 
-  void Solve(double* v, double& zav, double& nh, double& ne, std::map<int, std::vector<double> >& alpha_rj);
+  virtual void Solve(double* v, double& zav, double& nh, double& ne, std::map<int, std::vector<double> >& alpha_rj);
 
   int GetNumberOfElements() {return elem.size();}
 

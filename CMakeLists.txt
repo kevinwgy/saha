@@ -45,6 +45,7 @@ add_executable(saha
 Main.cpp
 IoData.cpp
 SahaEquationSolver.cpp
+NonIdealSahaEquationSolver.cpp
 AtomicIonizationData.cpp
 Utils.cpp)
 

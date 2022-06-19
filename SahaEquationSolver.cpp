@@ -28,10 +28,6 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
                     me(iod_.ion.electron_mass),
                     kb(iod_.ion.boltzmann_constant)
 {
-  if(iod_ion_mat->type != MaterialIonizationModel::SAHA_IDEAL) {
-    print_error("*** Error: Currently, only the ideal Saha equation is implemented in the solver.\n");
-    exit_mpi();
-  }
 
   Tmin = iod_ion_mat->ionization_Tmin;
   if(Tmin<=0) {
@@ -55,14 +51,15 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
     total_molar += it->second->molar_fraction;
 
     AtomicIonizationData& data(elem[it->first]);
+    bool ideal_or_not = (iod_ion_mat->type == MaterialIonizationModel::SAHA_IDEAL);
     if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::CUBIC_SPLINE_INTERPOLATION)
-      data.Setup(it->second, h, e, me, kb, 1, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
+      data.Setup(it->second, h, e, me, kb, ideal_or_not, 1, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
                  iod_ion_mat->sample_size, comm);
     else if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::LINEAR_INTERPOLATION)
-      data.Setup(it->second, h, e, me, kb, 2, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
+      data.Setup(it->second, h, e, me, kb, ideal_or_not, 2, iod_ion_mat->sample_Tmin, iod_ion_mat->sample_Tmax, 
                  iod_ion_mat->sample_size, comm);
     else if(iod_ion_mat->partition_evaluation == MaterialIonizationModel::ON_THE_FLY)
-      data.Setup(it->second, h, e, me, kb, 0, 0, 0, 0, NULL);
+      data.Setup(it->second, h, e, me, kb, ideal_or_not, 0, 0, 0, 0, NULL);
     else {
       print_error("*** Error: Detected an unknown method for partition function evaluation.\n");
       exit_mpi();
