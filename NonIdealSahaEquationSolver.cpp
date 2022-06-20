@@ -301,8 +301,8 @@ NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne
 
 
   // post-processing.
+  fun(one_over_lambD); //updates zav and alpha's
   ne = zav*nh;
-  // alpha has been filled in the last call to fun(one_over_lambD)
   for(auto it = alpha_rj.begin(); it != alpha_rj.end(); it++) {
     int j = it->first; //element id
     vector<double> &my_alpha = it->second; //alpha_r
