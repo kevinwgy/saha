@@ -76,10 +76,10 @@ SahaEquationSolver::SahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, Io
 
   // find molar mass and max atomic number among all the species/elements
   molar_mass = 0.0;
-  max_atomic_number = 0;
+  max_mean_atomic_number = 0;
   for(auto it = elem.begin(); it != elem.end(); it++) {
     molar_mass += (it->molar_fraction)*(it->molar_mass);
-    max_atomic_number = std::max(max_atomic_number, it->atomic_number);
+    max_mean_atomic_number += (it->molar_fraction)*(it->rmax);
   }
 
 }
@@ -132,7 +132,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
   //Find initial bracketing interval (zav0, zav1)
   double zav0, zav1, f0, f1; 
   zav0 = 0.0;
-  zav1 = max_atomic_number; //zav1>zav0
+  zav1 = max_mean_atomic_number; //zav1>zav0
   f0 = fun(zav0);
   bool found_initial_interval = false;
   for(int i=0; i<iod_ion_mat->maxIts; i++) {

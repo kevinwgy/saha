@@ -22,7 +22,7 @@ protected: //should be accessible for derived classes
   double me; //!< electron_mass;
   double kb; //!< boltzmann_constant;
 
-  int max_atomic_number;
+  int max_mean_atomic_number;
 
   double molar_mass; //the material is possibly a mixture
 

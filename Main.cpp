@@ -5,6 +5,7 @@
 #include <VarFcnMG.h>
 #include <VarFcnJWL.h>
 #include <SahaEquationSolver.h>
+#include <NonIdealSahaEquationSolver.h>
 #include <set>
 using std::cout;
 using std::endl;
@@ -78,8 +79,20 @@ int main(int argc, char* argv[])
       print_error("*** Error: Ionization model specified for an unknown material id (%d).\n", it->first);
       exit_mpi();
     }
-    print("- Initializing Saha Equation solver for material %d.\n", it->first);
-    saha[it->first] = new SahaEquationSolver(*(it->second), iod, vf[it->first], &comm);
+    switch (it->second->type) {
+      case MaterialIonizationModel::SAHA_IDEAL :
+        print("- Initializing ideal Saha Equation solver for material %d.\n", it->first);
+        saha[it->first] = new SahaEquationSolver(*(it->second), iod, vf[it->first], &comm);
+        break;
+      case MaterialIonizationModel::SAHA_NONIDEAL :
+        print("- Initializing non-ideal Saha Equation solver for material %d.\n", it->first);
+        saha[it->first] = new NonIdealSahaEquationSolver(*(it->second), iod, vf[it->first], &comm);
+        break;
+      default :
+        print_error("*** Error: Cannot initialize ionization solver for material %d. Unknown type.\n",
+                    it->first);
+        exit_mpi(); 
+    }
   }
   for(int i=0; i<saha.size(); i++) { //create dummy solvers for materials w/o ionization model
     if(saha[i] == NULL)

@@ -120,7 +120,7 @@ AtomicIonizationData::Setup(AtomicIonizationModel* iod_aim, double h_, double e_
   max_terms.resize(rmax, 0); 
   for(int r=0; r<rmax; r++)
     max_terms[r] = std::min(int(std::upper_bound(E[r].begin(), E[r].end(), I[r]) - E[r].begin()),
-                            g[r].size());
+                            (int)g[r].size());
  
 
   // if interpolation is true, create the interpolation database
@@ -170,8 +170,11 @@ AtomicIonizationData::InitializeInterpolation(MPI_Comm &comm)
   }
   UsCoeffs.assign(rmax, std::tuple<double,double,double>(0,0,0));
 
-  if(interpolation == 1) //cubic spline interpolation
-    spline.assign(rmax, vector<boost::math::cubic_b_spline<double>*>(ideal ? 1 : max_terms[r], NULL));
+  spline.clear();
+  if(interpolation == 1) {//cubic spline interpolation
+    for(int r=0; r<rmax; r++) 
+      spline.push_back(vector<boost::math::cubic_b_spline<double>*>(ideal ? 1 : max_terms[r], NULL));
+  }
 
   for(int r=0; r<rmax; r++)
     InitializeInterpolationForCharge(r, comm);
@@ -274,7 +277,7 @@ AtomicIonizationData::CalculatePartitionFunctionOnTheFly(int r, double T, double
 
   //upper_bound returns an iterator to the first element that is greater than I[r]-deltaI
   int nsize = std::min(int(std::upper_bound(E[r].begin(), E[r].end(), I[r]-deltaI) - E[r].begin()),
-                       g[r].size());
+                       (int)g[r].size());
 
   for(int n=0; n<nsize; n++)
     Ur += g[r][n]*exp(-E[r][n]/(kb*T));
@@ -292,7 +295,7 @@ AtomicIonizationData::CalculatePartitionFunctionOnTheFly2(int r, double T, int n
   assert(nterms>=1);
 
   double Ur = 0.0;
-  int nsize = std::min(nterms, std::min(g[r].size(), E[r].size()));
+  int nsize = std::min(nterms, std::min((int)g[r].size(), (int)E[r].size()));
   for(int n=0; n<nsize; n++)
     Ur += g[r][n]*exp(-E[r][n]/(kb*T));
 
@@ -316,7 +319,7 @@ AtomicIonizationData::CalculatePartitionFunctionByInterpolation(int r, double T,
   }
   else {
     int nsize = std::min(int(std::upper_bound(E[r].begin(), E[r].end(), I[r]-deltaI) - E[r].begin()),
-                         g[r].size());
+                         (int)g[r].size());
     k = max_terms[r] - nsize;
     assert(k>=0 && k<spline[r].size());
   }

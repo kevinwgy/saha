@@ -1,8 +1,7 @@
-#ifndef _SAHA_EQUATION_SOLVER_H_
-#define _SAHA_EQUATION_SOLVER_H_
+#ifndef _NON_IDEAL_SAHA_EQUATION_SOLVER_H_
+#define _NON_IDEAL_SAHA_EQUATION_SOLVER_H_
 
 #include<SahaEquationSolver.h>
-#include<NonIdealAtomicIonizationData.h>
 
 //----------------------------------------------------------------
 // Class NonIdealSahaEquationSolver is responsible for solving the 
@@ -25,8 +24,6 @@ class NonIdealSahaEquationSolver : public SahaEquationSolver {
 
 public:
 
-  NonIdealSahaEquationSolver(IoData& iod, VarFcnBase* vf_); //!< creates a dummy solver
-
   NonIdealSahaEquationSolver(MaterialIonizationModel& iod_ion_mat_, IoData& iod_, VarFcnBase* vf_, MPI_Comm* comm);
 
   ~NonIdealSahaEquationSolver();
@@ -43,31 +40,31 @@ protected:
                                 double one_over_lambD, bool compute_alpha);
 
 
-  //! nested class / functor: nonlinear equation for lambD (Debye length), given Zav
+  //! nested class / functor: nonlinear equation for lambD (Debye length). This is the master equation
   //! note that the independent variable is actually 1/lambD, not lambD (which can be inf)
   class LambDEquation { 
     double factor_lambD;
-    double T, nh, zav;
+    double T, nh;
     NonIdealSahaEquationSolver& saha;
+    double *zav_ptr; //stores the value obtained from last call to operator()
   public:
-    LambDEquation(NonIdealSahaEquationSolver& saha_, double T_, double nh_, double zav_);
+    LambDEquation(NonIdealSahaEquationSolver& saha_, double T_, double nh_, double *zav_ptr_);
     ~LambDEquation() {}
-    double operator() (double one_over_lambD) {return one_over_lambD - ComputeRHS(one_over_lambD);}
-  private:
-    double ComputeRHS(double one_over_lambD);
-  };
+    double operator() (double one_over_lambD);
+    double ComputeRHS(double one_over_lambD, double zav);
 
-
-  //! nested class / functor: nonlinear equation for Zav, given lambD
-  class ZavEquation {
-    double T, nh, lambD;
-    NonIdealSahaEquationSolver& saha;
-  public:
-    ZavEquation(NonIdealSahaEquationSolver &saha_, double T_, double nh_, double lambD_);
-    ~ZavEquation() {}
-    double operator() (double zav) {return zav - ComputeRHS(zav);}
   private:
-    double ComputeRHS(double zav); //!< compute the right-hand-side of the Zav equation
+    //! nested class / functor: nonlinear equation for Zav, given lambD
+    class ZavEquation {
+      double T, nh, one_over_lambD;
+      NonIdealSahaEquationSolver& saha;
+    public:
+      ZavEquation(NonIdealSahaEquationSolver &saha_, double T_, double nh_, double one_over_lambD_);
+      ~ZavEquation() {}
+      double operator() (double zav) {return zav - ComputeRHS(zav);}
+    private:
+      double ComputeRHS(double zav); //!< compute the right-hand-side of the Zav equation
+    };
   };
 
 
