@@ -40,6 +40,8 @@ int main(int argc, char* argv[])
 
   verbose = iod.output.verbose;
 
+  iod.finalize();
+
   //! Initialize VarFcn (EOS, etc.) 
 
   std::vector<VarFcnBase *> vf;

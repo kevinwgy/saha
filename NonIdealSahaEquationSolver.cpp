@@ -37,6 +37,10 @@ NonIdealSahaEquationSolver::~NonIdealSahaEquationSolver()
 double 
 NonIdealSahaEquationSolver::ComputeDeltaI(int r, int j, double T, double one_over_lambD)
 {
+
+  if(iod_ion_mat->depression == MaterialIonizationModel::NO_DEPRESSION)
+    return 0.0;
+
   double dI(0.0);
   if(iod_ion_mat->depression == MaterialIonizationModel::GRIEM) {
     dI = (r+1.0)*factor_deltaI*one_over_lambD;
@@ -128,7 +132,7 @@ NonIdealSahaEquationSolver::ComputeStateForElement(int j, double T, double nh, d
     }
   }
   zej *= elem[j].molar_fraction;
-
+  //fprintf(stderr,"Zej = %e for j = %d.\n", zej, j);
 
   //compute molar fractions if needed
   if(compute_alpha) {
@@ -139,11 +143,11 @@ NonIdealSahaEquationSolver::ComputeStateForElement(int j, double T, double nh, d
       for(int r=1; r<=rmax; r++)
         alpha[j][r] = 0.0;
     }
+
     alpha[j][0] = std::min(zej*zav_power[rmax]/numerator, elem[j].molar_fraction);
-    double ne = zav*nh;
     double summation = alpha[j][0];
     for(int r=1; r<=rmax; r++) {
-      alpha[j][r] = alpha[j][r-1]/ne*f[j][r];
+      alpha[j][r] = alpha[j][r-1]/zav*f[j][r];
       summation += alpha[j][r];
       if(summation>elem[j].molar_fraction) {
         alpha[j][r] -= (summation - elem[j].molar_fraction);
@@ -210,6 +214,7 @@ NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne
   double one_over_lambD_0, one_over_lambD_1, f0, f1;
   one_over_lambD_0 = 0.0;
   f0 = fun(one_over_lambD_0);
+
   //find the upper bound 
   one_over_lambD_1 = 4.0*fun.ComputeRHS(0.0, max_mean_atomic_number);
   double tmp = one_over_lambD_1; //store for possible use later
@@ -313,9 +318,23 @@ NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne
       continue;
     }
 
-    assert(my_alpha.size()<=alpha[j].size());
-    for(int r=0; r<my_alpha.size(); r++)
+    int max_size = std::min((int)my_alpha.size()-1, elem[j].rmax);
+    for(int r=0; r<max_size; r++) {
       my_alpha[r] = alpha[j][r];
+    }
+
+    my_alpha[max_size] = elem[j].molar_fraction;
+    for(int r=0; r<max_size; r++)
+      my_alpha[max_size] -= my_alpha[r];
+
+    //allow some roundoff error
+    //assert(alpha[last_one]>=-1.0e-4);
+    if(my_alpha[max_size]<0)
+      my_alpha[max_size] = 0;
+
+    //too many slots? put 0
+    for(int r=max_size+1; r<my_alpha.size(); r++)
+      my_alpha[r] = 0.0;
   }
 
 }
@@ -410,7 +429,9 @@ LambDEquation::operator()(double one_over_lambD)
   // Step 2: Compute RHS (and updates alphas)
   // ------------------------------
 
-  return ComputeRHS(one_over_lambD, zav);
+  double rhs = ComputeRHS(one_over_lambD, zav);
+
+  return one_over_lambD - rhs;
 
 }
 

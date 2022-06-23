@@ -2107,7 +2107,7 @@ Assigner* MaterialIonizationModel::getAssigner()
 
   new ClassToken<MaterialIonizationModel> (ca, "DepressionModel", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::depression), 
-        2, "Griem", 0, "Ebeling", 1);
+        3, "None", 0, "Griem", 1, "Ebeling", 2);
 
   new ClassToken<MaterialIonizationModel> (ca, "PartitionFunctionEvaluation", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::partition_evaluation), 

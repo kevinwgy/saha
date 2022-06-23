@@ -279,6 +279,10 @@ AtomicIonizationData::CalculatePartitionFunctionOnTheFly(int r, double T, double
   int nsize = std::min(int(std::upper_bound(E[r].begin(), E[r].end(), I[r]-deltaI) - E[r].begin()),
                        (int)g[r].size());
 
+  //fprintf(stderr,"I[%d] = %e, nsize = %d, E[%d][%d] = %e, Ieff-E = %e | %e.\n", r, I[r], nsize, r, 
+  //        nsize-1, E[r][nsize-1],
+  //        I[r]-deltaI-E[r][nsize-1], I[r]-deltaI-E[r][std::min(nsize, (int)E[r].size()-1)]);
+
   for(int n=0; n<nsize; n++)
     Ur += g[r][n]*exp(-E[r][n]/(kb*T));
 

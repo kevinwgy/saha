@@ -196,7 +196,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
   //*******************************************************************
 
 #if DEBUG_SAHA_SOLVER == 1
-  fprintf(stderr,"-- Saha equation solver converged in %d iterations, Zav = %.12e.\n", (int)maxit, zav);
+  fprintf(stdout,"-- Saha equation solver converged in %d iterations, Zav = %.12e.\n", (int)maxit, zav);
 #endif
 
   //post-processing.
@@ -213,6 +213,7 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
     }
 
     double zej = fun.GetZej(zav, j);
+    //fprintf(stderr,"zej = %e for j = %d.\n", zej, j);
     double denom = 0.0;
     double zav_power = 1.0;
     for(int i=1; i<=elem[j].rmax; i++) {
@@ -230,20 +231,24 @@ SahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne,
     }
  
     double fr(0.0);
-    for(int r=1; r<alpha.size()-1; r++) {
+    int max_size = std::min((int)alpha.size()-1, elem[j].rmax);
+    for(int r=1; r<max_size; r++) {
       fr = (fun.GetFProd(r-1,j) == 0.0) ? 0.0 : fun.GetFProd(r,j)/fun.GetFProd(r-1,j);
       alpha[r] = (r<=elem[j].rmax) ? alpha[r-1]/zav*fr : 0.0;
     }
 
-    int last_one = alpha.size()-1; 
-    alpha[last_one] = elem[j].molar_fraction;
-    for(int r=0; r<last_one; r++)
-      alpha[last_one] -= alpha[r];
+    alpha[max_size] = elem[j].molar_fraction;
+    for(int r=0; r<max_size; r++)
+      alpha[max_size] -= alpha[r];
 
     //allow some roundoff error
     //assert(alpha[last_one]>=-1.0e-4);
-    if(alpha[last_one]<0)
-      alpha[last_one] = 0;
+    if(alpha[max_size]<0)
+      alpha[max_size] = 0;
+
+    //too many slots? put 0
+    for(int r=max_size+1; r<alpha.size(); r++)
+      alpha[r] = 0.0;
   }
 
 }
