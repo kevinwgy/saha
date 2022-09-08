@@ -185,7 +185,7 @@ struct MeshData {
   ObjectMap<MeshResolution1DPointData>  ypoints_map;
   ObjectMap<MeshResolution1DPointData>  zpoints_map;
 
-  enum BcType {NONE = 0, INLET = 1, OUTLET = 2, WALL = 3, SYMMETRY = 4, SIZE = 5};
+  enum BcType {NONE = 0, INLET = 1, OUTLET = 2, SLIPWALL = 3, STICKWALL = 4, SYMMETRY = 5, SIZE = 6};
   BcType bc_x0, bc_xmax, bc_y0, bc_ymax, bc_z0, bc_zmax;
 
   MeshData();
@@ -221,6 +221,26 @@ struct StiffenedGasModelData {
 
   StiffenedGasModelData();
   ~StiffenedGasModelData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct NobleAbelStiffenedGasModelData {
+
+  double specificHeatRatio; //!< gamma
+  double pressureConstant; //!< p_c
+  double volumeConstant; //!< b
+  double energyConstant; //!< q
+  double entropyConstant; //!< q'
+
+  //! parameters related to temperature
+  double cv; //!< specific heat at constant volume
+
+  NobleAbelStiffenedGasModelData();
+  ~NobleAbelStiffenedGasModelData() {}
 
   void setup(const char *, ClassAssigner * = 0);
 
@@ -270,6 +290,31 @@ struct JonesWilkinsLeeModelData {
 
 //------------------------------------------------------------------------------
 
+struct ANEOSBirchMurnaghanDebyeModelData {
+
+  double zeroKelvinDensity; //!< reference density at 0 K (NOT ambient state)
+  double b0; //!< bulk modulus (ambient)
+  double b0prime; //!< derivative of b0 w.r.t. pressure
+  double delta_e; //!< internal energy shift (often set to 0)
+  double molar_mass; //!< molar mass
+  double T0; //!< reference temperature (ambient state)
+  double e0; //!< reference internal energy (ambient state)
+  double Gamma0; //!< reference Gruneisen parameter (ambient state)
+  double rho0; //!< reference densiy (ambient state)
+
+  double boltzmann_constant; //!< boltzmann constant
+
+  enum DebyeFunctionEvaluation {ON_THE_FLY = 0, CUBIC_SPLINE_INTERPOLATION = 1} debye_evaluation;
+
+  ANEOSBirchMurnaghanDebyeModelData();
+  ~ANEOSBirchMurnaghanDebyeModelData() {}
+
+  void setup(const char *, ClassAssigner * = 0);  
+
+};
+
+//------------------------------------------------------------------------------
+
 struct ViscosityModelData {
 
   enum Type {NONE = 0, CONSTANT = 1, SUTHERLAND = 2, ARTIFICIAL_RODIONOV = 3} type;
@@ -287,6 +332,7 @@ struct ViscosityModelData {
   double Cav, Cth; 
 
   ViscosityModelData();
+  ~ViscosityModelData() {}
 
   void setup(const char *, ClassAssigner * = 0);
 
@@ -302,6 +348,26 @@ struct HeatDiffusionModelData {
   double diffusivity;
 
   HeatDiffusionModelData();
+  ~HeatDiffusionModelData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+
+};
+
+//------------------------------------------------------------------------------
+
+struct HyperelasticityModelData {
+
+  enum Type {NONE = 0, SAINTVENANT_KIRCHHOFF = 1, MODIFIED_SAINTVENANT_KIRCHHOFF = 2,
+             NEO_HOOKEAN = 3, MOONEY_RIVLIN = 4} type;
+
+  double youngs_modulus; 
+  double poissons_ratio;
+
+  double C01; //additional parameter for Mooney-Rivlin (dW/dI2bar)
+
+  HyperelasticityModelData();
+  ~HyperelasticityModelData() {}
 
   void setup(const char *, ClassAssigner * = 0);
 
@@ -312,7 +378,8 @@ struct HeatDiffusionModelData {
 struct MaterialModelData {
 
   int id;
-  enum EOS {STIFFENED_GAS = 0, MIE_GRUNEISEN = 1, JWL = 2} eos;
+  enum EOS {STIFFENED_GAS = 0, NOBLE_ABEL_STIFFENED_GAS = 1, MIE_GRUNEISEN = 2, 
+            JWL = 3, ANEOS_BIRCH_MURNAGHAN_DEBYE = 4} eos;
   double rhomin;
   double pmin;
   double rhomax;
@@ -320,13 +387,17 @@ struct MaterialModelData {
 
   double failsafe_density; //for updating phase change -- last resort
 
-  StiffenedGasModelData    sgModel;
-  MieGruneisenModelData    mgModel;
-  JonesWilkinsLeeModelData jwlModel;
+  StiffenedGasModelData             sgModel;
+  NobleAbelStiffenedGasModelData    nasgModel;
+  MieGruneisenModelData             mgModel;
+  JonesWilkinsLeeModelData          jwlModel;
+  ANEOSBirchMurnaghanDebyeModelData abmdModel;
 
   ViscosityModelData viscosity;
 
   HeatDiffusionModelData heat_diffusion;
+
+  HyperelasticityModelData hyperelasticity;
 
   MaterialModelData();
   ~MaterialModelData() {}
@@ -1004,7 +1075,7 @@ struct OutputData {
 
   enum Options {OFF = 0, ON = 1};
   Options density, velocity, pressure, materialid, internal_energy, delta_internal_energy,
-          temperature, delta_temperature, laser_radiance;
+          temperature, delta_temperature, laser_radiance, reference_map;
 
   enum VerbosityLevel {LOW = 0, MEDIUM = 1, HIGH = 2} verbose;
 
@@ -1197,6 +1268,18 @@ struct TransientInputData {
 
 //------------------------------------------------------------------------------
 
+struct ReferenceMapData {
+
+  enum FiniteDifferenceMethod {NONE = 0, UPWIND_CENTRAL_3 = 1} fd;
+
+  ReferenceMapData();
+  ~ReferenceMapData() {}
+
+  void setup(const char *, ClassAssigner * = 0);
+};
+
+//------------------------------------------------------------------------------
+
 struct SpecialToolsData {
 
   enum Type {NONE = 0, DYNAMIC_LOAD_CALCULATION = 1, SIZE = 2} type;
@@ -1239,6 +1322,8 @@ public:
   IonizationData ion;
 
   TsData ts;
+
+  ReferenceMapData refmap;
 
   OutputData output;
 

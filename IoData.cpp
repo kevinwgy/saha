@@ -354,47 +354,65 @@ void MeshData::setup(const char *name, ClassAssigner *father)
 
   // Inside the code: Farfield0 = Farfield = Inlet, Farfield1 = Outlet
   new ClassToken<MeshData>(ca, "BoundaryConditionX0", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_x0), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_x0), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
   new ClassToken<MeshData>(ca, "BoundaryConditionXmax", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_xmax), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_xmax), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
   new ClassToken<MeshData>(ca, "BoundaryConditionY0", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_y0), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_y0), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
   new ClassToken<MeshData>(ca, "BoundaryConditionYmax", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_ymax), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_ymax), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
   new ClassToken<MeshData>(ca, "BoundaryConditionZ0", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_z0), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_z0), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
   new ClassToken<MeshData>(ca, "BoundaryConditionZmax", this,
-                               reinterpret_cast<int MeshData::*>(&MeshData::bc_zmax), 8,
+                               reinterpret_cast<int MeshData::*>(&MeshData::bc_zmax), 11,
                                "None", 0, 
                                "Inlet", 1, "Outlet", 2, //option 1
                                "Farfield0", 1, "Farfield1", 2, //option 2,
                                "Farfield", 1,//option 3
-                               "Wall", 3, "Symmetry", 4);
+                               "Wall", 3, //slip wall
+                               "SlipWall", 3, //slip wall,
+                               "StickWall", 4, //no-slip wall
+                               "NoSlipWall", 4, "Symmetry", 5);
  } 
 
 //------------------------------------------------------------------------------
@@ -474,6 +492,45 @@ void StiffenedGasModelData::setup(const char *name, ClassAssigner *father)
                                 &StiffenedGasModelData::rho0);
 
 }
+
+//------------------------------------------------------------------------------
+
+NobleAbelStiffenedGasModelData::NobleAbelStiffenedGasModelData()
+{
+
+  specificHeatRatio = 1.4;
+  pressureConstant  = 0.0;
+  volumeConstant    = 0.0;
+  energyConstant    = 0.0;
+  entropyConstant   = 0.0;
+
+  cv = 0.0;
+
+}
+
+//------------------------------------------------------------------------------
+
+void NobleAbelStiffenedGasModelData::setup(const char *name, ClassAssigner *father)
+{
+
+  ClassAssigner *ca = new ClassAssigner(name, 6, father);
+
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "SpecificHeatRatio", this,
+                      &NobleAbelStiffenedGasModelData::specificHeatRatio);
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "PressureConstant", this,
+                      &NobleAbelStiffenedGasModelData::pressureConstant);
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "VolumeConstant", this,
+                      &NobleAbelStiffenedGasModelData::volumeConstant);
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "EnergyConstant", this,
+                      &NobleAbelStiffenedGasModelData::energyConstant);
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "EntropyConstant", this,
+                      &NobleAbelStiffenedGasModelData::entropyConstant);
+
+  new ClassDouble<NobleAbelStiffenedGasModelData>(ca, "SpecificHeatAtConstantVolume", this,
+                      &NobleAbelStiffenedGasModelData::cv);
+
+}
+
 
 //------------------------------------------------------------------------------
 
@@ -565,6 +622,90 @@ void JonesWilkinsLeeModelData::setup(const char *name, ClassAssigner *father)
 
 //------------------------------------------------------------------------------
 
+ANEOSBirchMurnaghanDebyeModelData::ANEOSBirchMurnaghanDebyeModelData() 
+{
+  //Default values are for Copper (J.J. Sanchez, CMAME 2021)
+  zeroKelvinDensity = 0.00909; //g/mm3
+  b0 = 138.6e9; //Pa
+  b0prime = 5.24; //non-D
+  delta_e = 0.0;
+  molar_mass = 63.546; //g/mol
+  T0 = 343.0; //Kelvin
+  e0 = 0.0;
+  Gamma0 = 1.975; //non-D
+  rho0 = 0.00896; //g/mm3
+
+  boltzmann_constant = 1.38064852e-14; //unit: (mm^2).g/(s^2*K)  (dim: [energy]/[temperature])
+
+  debye_evaluation = CUBIC_SPLINE_INTERPOLATION;
+}
+
+//------------------------------------------------------------------------------
+
+void ANEOSBirchMurnaghanDebyeModelData::setup(const char *name, ClassAssigner *father)
+{
+
+  ClassAssigner *ca = new ClassAssigner(name, 11, father);
+
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "DensityAtZeroKelvin", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::zeroKelvinDensity);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceBulkModulus", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::b0);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceBulkModulusDerivative", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::b0prime);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "EnergyShift", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::delta_e);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "MolarMass", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::molar_mass);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceTemperature", this,
+                       &ANEOSBirchMurnaghanDebyeModelData::T0);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceSpecificInternalEnergy", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::e0);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceGamma", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::Gamma0);
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "ReferenceDensity", this, 
+                       &ANEOSBirchMurnaghanDebyeModelData::rho0);
+
+  new ClassDouble<ANEOSBirchMurnaghanDebyeModelData>(ca, "BoltzmannConstant", this,
+                       &ANEOSBirchMurnaghanDebyeModelData::boltzmann_constant);
+
+  new ClassToken<ANEOSBirchMurnaghanDebyeModelData> (ca, "DebyeFunctionEvaluation", this,
+        reinterpret_cast<int ANEOSBirchMurnaghanDebyeModelData::*>
+            (&ANEOSBirchMurnaghanDebyeModelData::debye_evaluation), 
+        2, "OnTheFly", 0, "CubicSplineInterpolation", 1);
+}
+
+//------------------------------------------------------------------------------
+
+HyperelasticityModelData::HyperelasticityModelData()
+{
+  type = NONE;
+  youngs_modulus = 0.0;
+  poissons_ratio = 0.0;
+  C01 = 0.0;
+}
+
+//------------------------------------------------------------------------------
+
+void HyperelasticityModelData::setup(const char *name, ClassAssigner *father)
+{
+  ClassAssigner *ca = new ClassAssigner(name, 4, father);
+
+  new ClassToken<HyperelasticityModelData>(ca, "Type", this,
+           reinterpret_cast<int HyperelasticityModelData::*>(&HyperelasticityModelData::type), 5,
+           "None",     HyperelasticityModelData::NONE,
+           "SaintVenantKirchhoff", HyperelasticityModelData::SAINTVENANT_KIRCHHOFF,
+           "ModifiedSaintVenantKirchhoff", HyperelasticityModelData::MODIFIED_SAINTVENANT_KIRCHHOFF,
+           "NeoHookean", HyperelasticityModelData::NEO_HOOKEAN,
+           "MooneyRivlin", HyperelasticityModelData::MOONEY_RIVLIN);
+
+  new ClassDouble<HyperelasticityModelData>(ca, "YoungsModulus", this, &HyperelasticityModelData::youngs_modulus);
+  new ClassDouble<HyperelasticityModelData>(ca, "PoissonsRatio", this, &HyperelasticityModelData::poissons_ratio);
+  new ClassDouble<HyperelasticityModelData>(ca, "C01", this, &HyperelasticityModelData::C01);
+}
+
+//------------------------------------------------------------------------------
+
 MaterialModelData::MaterialModelData()
 {
 
@@ -583,13 +724,15 @@ MaterialModelData::MaterialModelData()
 Assigner *MaterialModelData::getAssigner()
 {
 
-  ClassAssigner *ca = new ClassAssigner("normal", 11, nullAssigner);
+  ClassAssigner *ca = new ClassAssigner("normal", 14, nullAssigner);
 
   new ClassToken<MaterialModelData>(ca, "EquationOfState", this,
-                                 reinterpret_cast<int MaterialModelData::*>(&MaterialModelData::eos), 3,
+                                 reinterpret_cast<int MaterialModelData::*>(&MaterialModelData::eos), 5,
                                  "StiffenedGas", MaterialModelData::STIFFENED_GAS, 
+                                 "NobleAbelStiffenedGas", MaterialModelData::NOBLE_ABEL_STIFFENED_GAS, 
                                  "MieGruneisen", MaterialModelData::MIE_GRUNEISEN,
-                                 "JonesWilkinsLee", MaterialModelData::JWL);
+                                 "JonesWilkinsLee", MaterialModelData::JWL,
+                                 "ANEOSBirchMurnaghanDebye", MaterialModelData::ANEOS_BIRCH_MURNAGHAN_DEBYE);
   new ClassDouble<MaterialModelData>(ca, "DensityCutOff", this, &MaterialModelData::rhomin);
   new ClassDouble<MaterialModelData>(ca, "PressureCutOff", this, &MaterialModelData::pmin);
   new ClassDouble<MaterialModelData>(ca, "DensityUpperLimit", this, &MaterialModelData::rhomax);
@@ -598,14 +741,19 @@ Assigner *MaterialModelData::getAssigner()
   new ClassDouble<MaterialModelData>(ca, "DensityPrescribedAtFailure", this, &MaterialModelData::failsafe_density);
 
   sgModel.setup("StiffenedGasModel", ca);
+  nasgModel.setup("NobleAbelStiffenedGasModel", ca);
   mgModel.setup("MieGruneisenModel", ca);
   jwlModel.setup("JonesWilkinsLeeModel", ca);
+  abmdModel.setup("ANEOSBirchMurnaghanDebyeModel", ca);
 
   viscosity.setup("ViscosityModel", ca);
   
   heat_diffusion.setup("HeatDiffusionModel", ca);
   
+  hyperelasticity.setup("HyperelasticityModel", ca);
+  
   return ca;
+
 };
 
 //------------------------------------------------------------------------------
@@ -2203,6 +2351,7 @@ OutputData::OutputData()
   internal_energy = OFF;
   delta_internal_energy = OFF;
   laser_radiance = OFF;
+  reference_map = OFF;
   levelset0 = OFF;
   levelset1 = OFF;
   levelset2 = OFF;
@@ -2236,7 +2385,7 @@ OutputData::OutputData()
 
 void OutputData::setup(const char *name, ClassAssigner *father)
 {
-  ClassAssigner *ca = new ClassAssigner(name, 24+MAXLS+MAXSPECIES, father);
+  ClassAssigner *ca = new ClassAssigner(name, 25+MAXLS+MAXSPECIES, father);
 
   new ClassStr<OutputData>(ca, "Prefix", this, &OutputData::prefix);
   new ClassStr<OutputData>(ca, "Solution", this, &OutputData::solution_filename_base);
@@ -2270,6 +2419,9 @@ void OutputData::setup(const char *name, ClassAssigner *father)
                                "Off", 0, "On", 1);
   new ClassToken<OutputData>(ca, "LaserRadiance", this,
                                reinterpret_cast<int OutputData::*>(&OutputData::laser_radiance), 2,
+                               "Off", 0, "On", 1);
+  new ClassToken<OutputData>(ca, "ReferenceMap", this,
+                               reinterpret_cast<int OutputData::*>(&OutputData::reference_map), 2,
                                "Off", 0, "On", 1);
 
   new ClassToken<OutputData>(ca, "LevelSet0", this,
@@ -2735,6 +2887,24 @@ void TerminalVisualizationData::setup(const char *name, ClassAssigner *father)
 
 //------------------------------------------------------------------------------
 
+ReferenceMapData::ReferenceMapData()
+{
+  fd = UPWIND_CENTRAL_3;
+}
+
+//------------------------------------------------------------------------------
+
+void ReferenceMapData::setup(const char *name, ClassAssigner *father)
+{
+  ClassAssigner *ca = new ClassAssigner(name, 1, father);
+
+  new ClassToken<ReferenceMapData> (ca, "FiniteDifference", this,
+     reinterpret_cast<int ReferenceMapData::*>(&ReferenceMapData::fd), 2,
+     "None", 0, "ThirdOrderUpwind", 1);
+}
+
+//------------------------------------------------------------------------------
+
 SpecialToolsData::SpecialToolsData()
 {
   type = NONE;
@@ -2832,12 +3002,14 @@ void IoData::setupCmdFileVariables()
 
   concurrent.setup("ConcurrentPrograms");
 
+  ebm.setup("EmbeddedBoundary");
   ebm.setup("EmbeddedBoundaryMethod");
 
   eqs.setup("Equations");
   eqs.setup("NavierStokesEquations");
 
   ic.setup("InitialCondition");
+
   bc.setup("BoundaryConditions");
 
   mesh.setup("Mesh");
@@ -2853,6 +3025,8 @@ void IoData::setupCmdFileVariables()
   ts.setup("Time");
 
   multiphase.setup("MultiPhase");
+
+  refmap.setup("ReferenceMap");
 
   output.setup("Output");
 
