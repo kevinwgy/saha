@@ -48,12 +48,12 @@ int main(int argc, char* argv[])
   //! Initialize VarFcn (EOS, etc.) 
 
   std::vector<VarFcnBase *> vf;
-  for(int i=0; i<iod.eqs.materials.dataMap.size(); i++)
+  for(int i=0; i<(int)iod.eqs.materials.dataMap.size(); i++)
     vf.push_back(NULL); //allocate memory for the VarFcn pointers
 
   for(auto it = iod.eqs.materials.dataMap.begin(); it != iod.eqs.materials.dataMap.end(); it++) {
     int matid = it->first;
-    if(matid < 0 || matid >= vf.size()) {
+    if(matid < 0 || matid >= (int)vf.size()) {
       print_error("*** Error: Detected error in the specification of material indices (id = %d).\n", matid);
       exit_mpi();
     }
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
         exit_mpi(); 
     }
   }
-  for(int i=0; i<saha.size(); i++) { //create dummy solvers for materials w/o ionization model
+  for(int i=0; i<(int)saha.size(); i++) { //create dummy solvers for materials w/o ionization model
     if(saha[i] == NULL)
       saha[i] = new SahaEquationSolver(iod, vf[i]);
   }
@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
   print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);
   for(auto it = nodal_alphas.begin(); it != nodal_alphas.end(); it++) {
     print("  - Species %d:\n", it->first);
-    for(int i=0; i<it->second.size()-1; i++)
+    for(int i=0; i<(int)it->second.size()-1; i++)
       print("    o Molar fraction of charged state %d: %e.\n", i, it->second[i]);
     print("    o Molar fraction of charged state %d+: %e.\n", it->second.size()-1, it->second[it->second.size()-1]);
   }
@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
   print("Total Computation Time: %f sec.\n", ((double)(clock()-start_time))/CLOCKS_PER_SEC);
   print("\n");
 
-  for(int i=0; i<vf.size(); i++)
+  for(int i=0; i<(int)vf.size(); i++)
     delete vf[i];
 
   for(auto it = saha.begin(); it != saha.end(); it++)
