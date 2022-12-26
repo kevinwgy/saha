@@ -28,7 +28,8 @@ public:
 
   ~NonIdealSahaEquationSolver();
 
-  void Solve(double* v, double& zav, double& nh, double& ne, std::map<int, std::vector<double> >& alpha_rj);
+  void Solve(double* v, double& zav, double& nh, double& ne, std::map<int, std::vector<double> >& alpha_rj,
+             double* lambD = NULL);
 
 protected:
 

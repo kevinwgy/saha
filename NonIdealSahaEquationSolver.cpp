@@ -174,7 +174,7 @@ NonIdealSahaEquationSolver::ComputeStateForElement(int j, double T, double nh, d
 
 void
 NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne, 
-                                  map<int, vector<double> >& alpha_rj)
+                                  map<int, vector<double> >& alpha_rj, double* lambD)
 {
 
   if(!iod_ion_mat) { //dummy solver 
@@ -337,6 +337,13 @@ NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne
       my_alpha[r] = 0.0;
   }
 
+  if(lambD) {
+    if(one_over_lambD==0 || !std::isfinite(one_over_lambD))
+      *lambD = 0.0;
+    else
+      *lambD = 1.0/one_over_lambD;
+  }
+ 
 }
 
 //--------------------------------------------------------------------------
