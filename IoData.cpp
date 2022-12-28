@@ -2265,6 +2265,8 @@ MaterialIonizationModel::MaterialIonizationModel()
 {
   type = NONE;
   depression = GRIEM; //relevant only to non-ideal Saha
+  depression_max = 1.0; //relevant only to non-ideal Saha
+
   maxIts = 200;
   convergence_tol = 1.0e-5;
 
@@ -2281,7 +2283,7 @@ MaterialIonizationModel::MaterialIonizationModel()
 
 Assigner* MaterialIonizationModel::getAssigner()
 {
-  ClassAssigner *ca = new ClassAssigner("normal", 10, nullAssigner);
+  ClassAssigner *ca = new ClassAssigner("normal", 11, nullAssigner);
 
   new ClassToken<MaterialIonizationModel> (ca, "Type", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::type), 
@@ -2289,7 +2291,10 @@ Assigner* MaterialIonizationModel::getAssigner()
 
   new ClassToken<MaterialIonizationModel> (ca, "DepressionModel", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::depression), 
-        3, "None", 0, "Griem", 1, "Ebeling", 2);
+        4, "None", 0, "Griem", 1, "Ebeling", 2, "GriemFletcher", 3);
+
+  new ClassDouble<MaterialIonizationModel>(ca, "MaxDepression", this, 
+        &MaterialIonizationModel::depression_max);
 
   new ClassToken<MaterialIonizationModel> (ca, "PartitionFunctionEvaluation", this,
         reinterpret_cast<int MaterialIonizationModel::*>(&MaterialIonizationModel::partition_evaluation), 
