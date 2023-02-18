@@ -1,3 +1,8 @@
+/************************************************************************
+ * Copyright © 2020 The Multiphysics Modeling and Computation (M2C) Lab
+ * <kevin.wgy@gmail.com> <kevinw3@vt.edu>
+ ************************************************************************/
+
 #include <time.h>
 #include <Utils.h>
 #include <IoData.h>
@@ -108,7 +113,6 @@ int main(int argc, char* argv[])
       saha[i] = new SahaEquationSolver(iod, vf[i]);
   }
 
-
   double V[5];
   int id;
   V[0] = iod.bc.inlet.density;
@@ -134,6 +138,8 @@ int main(int argc, char* argv[])
 
   saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
 
+
+
 /*
 // Timing
   auto start = high_resolution_clock::now();
@@ -154,6 +160,72 @@ int main(int argc, char* argv[])
     print("    o Molar fraction of charged state %d+: %e.\n", it->second.size()-1, it->second[it->second.size()-1]);
   }
 
+
+
+
+/*
+  FILE *sols   = fopen("sols.txt", "w+");
+  FILE *alphas = fopen("alphas.txt", "w+");
+
+  if (!sols || !alphas){
+    fprintf(stderr, "output file could not be opened \n");
+    exit(-1);
+  }
+
+  fprintf(sols, "Density Temperature Nh Zav Ne DebyeLength \n");
+  fprintf(alphas, "Density Temperature j r alpha \n");
+
+// hack for rho/T
+  double rho = iod.bc.inlet.density; //make input density as rho0
+  double rhof = 1.0e3;
+  double npoints = 100.0;
+  double drho =  pow(rhof/rho, 1.0/npoints);
+  while (rho<=rhof*drho) { //START RHO LOOP
+    double V[6];
+    int id;
+    V[0] = rho;
+    V[1] = iod.bc.inlet.velocity_x;
+    V[2] = iod.bc.inlet.velocity_y;
+    V[3] = iod.bc.inlet.velocity_z;
+    V[4] = iod.bc.inlet.pressure;
+    V[5] = iod.bc.inlet.temperature;
+    id   = iod.bc.inlet.materialid;
+
+    print("Solving the Saha Ionization Equation...\n");
+    print("Input: density = %e, temperature = %e (MaterialID: %d).\n",V[0],V[5],id);
+    //double e = vf[id]->GetInternalEnergyPerUnitMass(V[0], V[4]);
+    //print("By EOS: e = %e.\n", e);
+
+    int max_charge_in_output = iod.output.max_charge_number;
+
+    std::map<int, vector<double> > nodal_alphas;
+    for(int iSpecies=0; iSpecies<OutputData::MAXSPECIES; iSpecies++)
+      if(iod.output.molar_fractions[iSpecies] == OutputData::ON)
+        nodal_alphas[iSpecies] = vector<double>(max_charge_in_output+2);
+
+    double zav, nh, ne, lambda;
+    saha[id]->Solve(V, zav, nh, ne, nodal_alphas, &lambda);
+
+    print("\n");
+    print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);
+
+    fprintf(sols, "%e %e %e %e %e %e \n", rho, V[5], nh, zav,  ne, lambda);
+
+    for(auto it = nodal_alphas.begin(); it != nodal_alphas.end(); it++) {
+      for(unsigned int i=0; i<it->second.size()-1; i++)
+        fprintf(alphas, "%e %e %d %d %e\n", rho, V[5], it->first, i, it->second[i]);
+      fprintf(alphas, "%e %e %d %ld %e\n", rho, V[5], it->first, it->second.size()-1,
+              it->second[it->second.size()-1]);
+    }
+
+    rho=rho*drho;
+  } // end rho loop
+
+
+  fclose(sols);
+  fclose(alphas);
+
+*/
 
   print("\n");
   print("\033[0;32m==========================================\033[0m\n");

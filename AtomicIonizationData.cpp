@@ -1,3 +1,8 @@
+/************************************************************************
+ * Copyright © 2020 The Multiphysics Modeling and Computation (M2C) Lab
+ * <kevin.wgy@gmail.com> <kevinw3@vt.edu>
+ ************************************************************************/
+
 #include<AtomicIonizationData.h>
 #include<fstream>
 using std::vector;
@@ -278,6 +283,14 @@ AtomicIonizationData::CalculatePartitionFunctionOnTheFly(int r, double T, double
   //upper_bound returns an iterator to the first element that is greater than I[r]-deltaI
   int nsize = std::min(int(std::upper_bound(E[r].begin(), E[r].end(), I[r]-deltaI) - E[r].begin()),
                        (int)g[r].size());
+
+/*
+  //TEST: TRUNCATION IS IGNORED!
+  int nsize = std::min(g[r].size(), E[r].size());
+  //END OF TEST
+  
+*/
+
 
   //fprintf(stderr,"I[%d] = %e, nsize = %d, E[%d][%d] = %e, Ieff-E = %e | %e.\n", r, I[r], nsize, r, 
   //        nsize-1, E[r][nsize-1],

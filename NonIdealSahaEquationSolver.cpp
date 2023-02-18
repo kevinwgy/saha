@@ -1,3 +1,8 @@
+/************************************************************************
+ * Copyright © 2020 The Multiphysics Modeling and Computation (M2C) Lab
+ * <kevin.wgy@gmail.com> <kevinw3@vt.edu>
+ ************************************************************************/
+
 #include<NonIdealSahaEquationSolver.h>
 #include<fstream>
 #include<boost/math/tools/roots.hpp>
@@ -211,6 +216,9 @@ NonIdealSahaEquationSolver::Solve(double* v, double& zav, double& nh, double& ne
 
 
   double T = vf->GetTemperature(v[0], vf->GetInternalEnergyPerUnitMass(v[0], v[4]));
+/*
+  double T = v[5]; //TODO: HACK!!!
+*/
   nh = v[0]/molar_mass*avogadro_number;
 
   if(T<=Tmin) { //no ionization
