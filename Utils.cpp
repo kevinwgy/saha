@@ -6,7 +6,6 @@
 #include <iostream>
 #include <Utils.h>
 #include <time.h>
-#include <mpi.h>
 #include <stdio.h>
 #include <cstring>
 #include <cmath> //floor
@@ -191,7 +190,7 @@ void print(FILE* fd, const char format[],...)
     va_end(Argp);
   }
 
-  MPI_Barrier(m2c_comm);
+  //MPI_Barrier(m2c_comm); (This slows down the code!)
   return;
 }
 
@@ -209,7 +208,7 @@ void print(MPI_Comm& comm, FILE* fd, const char format[],...)
     va_end(Argp);
   }
 
-  MPI_Barrier(comm);
+  //MPI_Barrier(comm); (This slows down the code)
   return;
 }
 
@@ -237,7 +236,7 @@ const string getCurrentDateTime()
 
 //--------------------------------------------------
 // Print logo 
-void printHeader(int argc, char *argv[])
+void printHeader([[maybe_unused]] int argc, [[maybe_unused]] char *argv[])
 {
 }
 //--------------------------------------------------

@@ -10,8 +10,8 @@
 #include <fstream>
 
 /********************************************************************************
- * This class is the VarFcn class for the Mie-Gruneisen EOS in Euler
- * Equations. Only elementary functions are declared and/or defined here.
+ * This class is the VarFcn class for the Mie-Gruneisen equation of state (EOS)
+ * Only elementary functions are declared and/or defined here.
  * All arguments must be pertinent to only a single grid node or a single
  * state.
  *
@@ -72,13 +72,13 @@ public:
 
   inline double GetDensity(double p, double e);
 
-  inline double GetDpdrho(double rho, double e){
+  inline double GetDpdrho(double rho, [[maybe_unused]] double e){
     double eta = 1.0 - rho0/rho;
     double S = 1.0 - s*eta;
     return rho0_c0_c0*(1.0 + (s - Gamma0)*eta)/(S*S*S)*rho0/(rho*rho);
   }
 
-  inline double GetBigGamma(double rho, double e) {return Gamma0_rho0/rho;}
+  inline double GetBigGamma(double rho, [[maybe_unused]] double e) {return Gamma0_rho0/rho;}
 
   inline double GetTemperature(double rho, double e);
 
@@ -94,11 +94,11 @@ public:
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-inline
+
 VarFcnMG::VarFcnMG(MaterialModelData &data) : VarFcnBase(data) {
 
   if(data.eos != MaterialModelData::MIE_GRUNEISEN){
-    fprintf(stderr, "*** Error: MaterialModelData is not of type Mie-Gruneisen.\n");
+    fprintf(stdout, "*** Error: MaterialModelData is not of type Mie-Gruneisen.\n");
     exit(-1);
   }
 
@@ -123,6 +123,12 @@ VarFcnMG::VarFcnMG(MaterialModelData &data) : VarFcnBase(data) {
   rho0_c0_c0 = rho0*c0*c0;
   Gamma0_over_2 = 0.5*Gamma0;
   Gamma0_rho0 = Gamma0*rho0;
+
+  if(rho0<=0.0 || c0<=0.0 || Gamma0<=0.0 || s<=0.0) {
+    fprintf(stdout, "*** Error: VarFcnMG detected non-positive rho0 (%e), c0 (%e), "
+                    "Gamma0 (%e), or s (%e).\n", rho0, c0, Gamma0, s);
+    exit(-1);
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -143,7 +149,7 @@ double VarFcnMG::GetDensity(double p, double e) {
 
     double b2m4ac = b*b - 4.0*a*c;
     if(b2m4ac<0) {
-      fprintf(stderr, "*** Error: The M-G EOS is invalid for the given p(%e) and e(%e) --- unable to solve it for rho.\n",
+      fprintf(stdout, "*** Error: The M-G EOS is invalid for the given p(%e) and e(%e) --- unable to solve it for rho.\n",
               p, e);
       exit(-1);
     }
@@ -156,7 +162,7 @@ double VarFcnMG::GetDensity(double p, double e) {
       std::swap(rho1,rho2); //rho2 should be the bigger one
 
     if(rho1>0 || rho2<0) { //both are negative, or both are positive
-      fprintf(stderr, "*** Error: Cannot determine the solution (rho) of the M-G EOS (rho1 = %e, rho2 = %e). \n", 
+      fprintf(stdout, "*** Error: Cannot determine the solution (rho) of the M-G EOS (rho1 = %e, rho2 = %e). \n", 
               rho1, rho2);
       exit(-1);
     }

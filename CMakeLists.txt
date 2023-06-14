@@ -17,7 +17,7 @@ SET(CMAKE_C_COMPILER mpicc)
 SET(CMAKE_CXX_COMPILER mpicxx)
 
 # compiler flags (turn on most of the warnings, except unused variables and parameters
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-reorder -Wno-unused-parameter")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-reorder")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
@@ -48,7 +48,8 @@ IoData.cpp
 SahaEquationSolver.cpp
 NonIdealSahaEquationSolver.cpp
 AtomicIonizationData.cpp
-Utils.cpp)
+Utils.cpp
+MathTools/polynomial_equations.cpp)
 
 # link to libraries
 target_link_libraries(saha parser)

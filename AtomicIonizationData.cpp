@@ -72,22 +72,26 @@ AtomicIonizationData::Setup(AtomicIonizationModel* iod_aim, double h_, double e_
 
   // Step 3: Read excitation energy files
   E.resize(atomic_number);
-  int max_size = 0;
-  for(int i=0; i<atomic_number; i++) {
+  int max_size = 0, i;
+  for(i=0; i<atomic_number; i++) {
     std::string filename = std::string(iod_aim->excitation_energy_files_prefix) 
                          + std::to_string(i)
                          + std::string(iod_aim->excitation_energy_files_suffix);
     file.open(filename.c_str(), std::fstream::in);
     if(!file.is_open()) {
-      print_error("*** Error: Cannot open excitation energy file %s.\n", filename.c_str());
-      exit_mpi();
+      if(i<rmax) 
+        print_warning("Warning: Cannot open excitation energy file %s. Skipping higher "
+                      "states of ionization.\n", filename.c_str());
+      //if i>=rmax, no need to throw a warning.
+      E.resize(i);
+      break;
     }
     GetDataInFile(file, E[i], 10000, true);
     file.close();
     if(max_size<(int)E[i].size())
       max_size = E[i].size();
   }
-  print("    * Read %d excitation energy files: %sX%s. Max excited state: %d.\n", atomic_number,
+  print("    * Read %d excitation energy files: %sX%s. Max excited state: %d.\n", i,
         iod_aim->excitation_energy_files_prefix, 
         iod_aim->excitation_energy_files_suffix, max_size);
 
@@ -95,21 +99,25 @@ AtomicIonizationData::Setup(AtomicIonizationModel* iod_aim, double h_, double e_
   // Step 4: Read degeneracy files ("g") 
   g.resize(atomic_number);
   max_size = 0;
-  for(int i=0; i<atomic_number; i++) {
+  for(i=0; i<atomic_number; i++) {
     std::string filename = std::string(iod_aim->degeneracy_files_prefix)
                          + std::to_string(i)
                          + std::string(iod_aim->degeneracy_files_suffix);
     file.open(filename.c_str(), std::fstream::in);
     if(!file.is_open()) {
-      print_error("*** Error: Cannot open degeneracy file %s.\n", filename.c_str());
-      exit_mpi();
+      if(i<rmax) 
+        print_warning("Warning: Cannot open degeneracy file %s. Skipping higher "
+                    "states of ionization.\n", filename.c_str());
+      //if i>=rmax, no need to throw a warning.
+      g.resize(i);
+      break;
     }
     GetDataInFile(file, g[i], 10000, true);
     file.close();
     if(max_size<(int)g[i].size())
       max_size = g[i].size();
   }
-  print("    * Read %d degeneracy files: %sX%s. Max excited state: %d.\n", atomic_number,
+  print("    * Read %d degeneracy files: %sX%s. Max excited state: %d.\n", i,
         iod_aim->degeneracy_files_prefix, 
         iod_aim->degeneracy_files_suffix, max_size);
 
@@ -263,7 +271,8 @@ AtomicIonizationData::CalculatePartitionFunction(int r, double T, double deltaI)
 {
   assert(r<=rmax);
 
-  if(r==atomic_number)
+  //if(r==atomic_number)
+  if(r==rmax) //if rmax<atomic_number, we need to avoid accessing non-existent E & g...
     return 1.0; //per Shafquat
 
   if(interpolation && T>=sample_Tmin && T<=sample_Tmax)
