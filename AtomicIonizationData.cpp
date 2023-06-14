@@ -146,6 +146,8 @@ AtomicIonizationData::Setup(AtomicIonizationModel* iod_aim, double h_, double e_
   sample_Tmin = sample_Tmin_;
   sample_Tmax = sample_Tmax_;
   sample_size = sample_size_;
+  assert(isfinite(sample_size));
+
   if(interpolation) {
     assert(comm);
     InitializeInterpolation(*comm);
@@ -228,6 +230,7 @@ AtomicIonizationData::InitializeInterpolationForCharge(int r, MPI_Comm &comm)
 
   int block_size = floor((double)sample_size/(double)mpi_size);
   int remainder = sample_size - block_size*mpi_size;
+  assert(remainder>=0 && remainder<mpi_size);
 
   //prepare for comm.
   int* counts = new int[mpi_size];
@@ -236,6 +239,7 @@ AtomicIonizationData::InitializeInterpolationForCharge(int r, MPI_Comm &comm)
     counts[i] = (i<remainder) ? block_size + 1 : block_size;
     displacements[i] = (i<remainder) ? (block_size+1)*i : block_size*i + remainder;
   }
+  assert(displacements[mpi_size-1]+counts[mpi_size-1] == sample_size);
 
   int my_start_id = displacements[mpi_rank];
   int my_block_size = counts[mpi_rank];
@@ -370,7 +374,7 @@ AtomicIonizationData::CalculatePartitionFunctionByInterpolation(int r, double T,
     return (1.0-d)*Us[r][k][i] + d*Us[r][k][i+1];
 
   } else {
-    fprintf(stderr,"\033[0;31m*** Error: Encountered unknown interpolation code (%d).\n\033[0m", 
+    fprintf(stdout,"\033[0;31m*** Error: Encountered unknown interpolation code (%d).\n\033[0m", 
             interpolation);
     exit(-1);
   }
