@@ -715,7 +715,59 @@ void NobleAbelStiffenedGasModelData::setup(const char *name, ClassAssigner *fath
 
 //------------------------------------------------------------------------------
 
-MieGruneisenModelData::MieGruneisenModelData() 
+MieGruneisenModelData::MieGruneisenModelData()
+{
+  // default values are for copper
+  // These values are taken from Wikipedia
+  // (https://en.wikipedia.org/wiki/Mie%E2%80%93Gr%C3%BCneisen_equation_of_state),
+  // which cites two papers: Mitchell and Nellis (1981) "Shock compression of
+  // aluminum, copper, and tantalum", Journal of Applied Physics, and MacDonald and
+  // MacDonald (1981) "Thermodynamic properties of fcc metals at high temperaures",
+  // Physical Review B.
+
+  rho0 = 8.96e-3;       // unit: g/mm3
+  c0 = 3.933e6;         // unit: mm/s
+  Gamma0 = 1.99;        // non-dimensional
+  s = 1.5;              // non-dimensional
+  e0 = 0.0;
+
+  cv = 0.0; //3.90e8;   // unit: mm2/(s2.K)
+  cp = 0.0;
+  h0 = 0.0;
+  T0 = 0.0;
+}
+
+//------------------------------------------------------------------------------
+
+void MieGruneisenModelData::setup(const char *name, ClassAssigner *father)
+{
+
+  ClassAssigner *ca = new ClassAssigner(name, 9, father);
+
+  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceDensity", this,
+                                         &MieGruneisenModelData::rho0);
+  new ClassDouble<MieGruneisenModelData>(ca, "SpecificHeatAtConstantVolume", this,
+                                         &MieGruneisenModelData::cv);
+  new ClassDouble<MieGruneisenModelData>(ca, "BulkSpeedOfSound", this,
+                                         &MieGruneisenModelData::c0);
+  new ClassDouble<MieGruneisenModelData>(ca, "HugoniotSlope", this,
+                                         &MieGruneisenModelData::s);
+  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceGamma", this,
+                                         &MieGruneisenModelData::Gamma0);
+  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceSpecificInternalEnergy", this,
+                                         &MieGruneisenModelData::e0);
+  new ClassDouble<MieGruneisenModelData>(ca, "SpecificHeatAtConstantPressure", this,
+                                         &MieGruneisenModelData::cp);
+  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceSpecificEnthalpy", this,
+                                         &MieGruneisenModelData::h0);
+  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceTemperature", this,
+                                         &MieGruneisenModelData::T0);
+
+}
+
+//------------------------------------------------------------------------------
+
+ExtendedMieGruneisenModelData::ExtendedMieGruneisenModelData() 
 {
   // default values are for copper
   // These values are taken from Wikipedia 
@@ -731,6 +783,10 @@ MieGruneisenModelData::MieGruneisenModelData()
   s = 1.5;              // non-dimensional
   e0 = 0.0;         
 
+  eta_min = -DBL_MAX;   // non-dimensional (volumetric strain)
+
+  Tlaw = ORIGINAL_CV; 
+
   cv = 0.0; //3.90e8;   // unit: mm2/(s2.K)
   cp = 0.0;
   h0 = 0.0;
@@ -739,30 +795,38 @@ MieGruneisenModelData::MieGruneisenModelData()
 
 //------------------------------------------------------------------------------
 
-void MieGruneisenModelData::setup(const char *name, ClassAssigner *father)
+void ExtendedMieGruneisenModelData::setup(const char *name, ClassAssigner *father)
 {
 
-  ClassAssigner *ca = new ClassAssigner(name, 9, father);
+  ClassAssigner *ca = new ClassAssigner(name, 11, father);
 
-  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceDensity", this, 
-                                         &MieGruneisenModelData::rho0);
-  new ClassDouble<MieGruneisenModelData>(ca, "SpecificHeatAtConstantVolume", this, 
-                                         &MieGruneisenModelData::cv);
-  new ClassDouble<MieGruneisenModelData>(ca, "BulkSpeedOfSound", this, 
-                                         &MieGruneisenModelData::c0);
-  new ClassDouble<MieGruneisenModelData>(ca, "HugoniotSlope", this, 
-                                         &MieGruneisenModelData::s);
-  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceGamma", this, 
-                                         &MieGruneisenModelData::Gamma0);
-  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceSpecificInternalEnergy", this, 
-                                         &MieGruneisenModelData::e0);
-  new ClassDouble<MieGruneisenModelData>(ca, "SpecificHeatAtConstantPressure", this,
-                                         &MieGruneisenModelData::cp);
-  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceSpecificEnthalpy", this,
-                                         &MieGruneisenModelData::h0);
-  new ClassDouble<MieGruneisenModelData>(ca, "ReferenceTemperature", this,
-                                         &MieGruneisenModelData::T0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "ReferenceDensity", this, 
+                                         &ExtendedMieGruneisenModelData::rho0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "SpecificHeatAtConstantVolume", this, 
+                                         &ExtendedMieGruneisenModelData::cv);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "BulkSpeedOfSound", this, 
+                                         &ExtendedMieGruneisenModelData::c0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "HugoniotSlope", this, 
+                                         &ExtendedMieGruneisenModelData::s);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "ReferenceGamma", this, 
+                                         &ExtendedMieGruneisenModelData::Gamma0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "ReferenceSpecificInternalEnergy", this, 
+                                         &ExtendedMieGruneisenModelData::e0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "SpecificHeatAtConstantPressure", this,
+                                         &ExtendedMieGruneisenModelData::cp);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "ReferenceSpecificEnthalpy", this,
+                                         &ExtendedMieGruneisenModelData::h0);
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "ReferenceTemperature", this,
+                                         &ExtendedMieGruneisenModelData::T0);
 
+  new ClassToken<ExtendedMieGruneisenModelData>(ca, "TemperatureLaw", this,
+                 reinterpret_cast<int ExtendedMieGruneisenModelData::*>
+                 (&ExtendedMieGruneisenModelData::Tlaw), 3,
+                 "OriginalCv", 0, "SimplifiedCv", 1, "SimplifiedCp", 2);
+
+  new ClassDouble<ExtendedMieGruneisenModelData>(ca, "VolumetricStrainBreak", this,
+                                         &ExtendedMieGruneisenModelData::eta_min);
+  
 }
 
 //------------------------------------------------------------------------------
@@ -968,13 +1032,14 @@ MaterialModelData::MaterialModelData()
 Assigner *MaterialModelData::getAssigner()
 {
 
-  ClassAssigner *ca = new ClassAssigner("normal", 15, nullAssigner);
+  ClassAssigner *ca = new ClassAssigner("normal", 16, nullAssigner);
 
   new ClassToken<MaterialModelData>(ca, "EquationOfState", this,
-                                 reinterpret_cast<int MaterialModelData::*>(&MaterialModelData::eos), 6,
+                                 reinterpret_cast<int MaterialModelData::*>(&MaterialModelData::eos), 7,
                                  "StiffenedGas", MaterialModelData::STIFFENED_GAS, 
                                  "NobleAbelStiffenedGas", MaterialModelData::NOBLE_ABEL_STIFFENED_GAS, 
                                  "MieGruneisen", MaterialModelData::MIE_GRUNEISEN,
+                                 "ExtendedMieGruneisen", MaterialModelData::EXTENDED_MIE_GRUNEISEN,
                                  "Tillotson", MaterialModelData::TILLOTSON,
                                  "JonesWilkinsLee", MaterialModelData::JWL,
                                  "ANEOSBirchMurnaghanDebye", MaterialModelData::ANEOS_BIRCH_MURNAGHAN_DEBYE);
@@ -988,6 +1053,7 @@ Assigner *MaterialModelData::getAssigner()
   sgModel.setup("StiffenedGasModel", ca);
   nasgModel.setup("NobleAbelStiffenedGasModel", ca);
   mgModel.setup("MieGruneisenModel", ca);
+  mgextModel.setup("ExtendedMieGruneisenModel", ca);
   tillotModel.setup("TillotsonModel", ca);
   jwlModel.setup("JonesWilkinsLeeModel", ca);
   abmdModel.setup("ANEOSBirchMurnaghanDebyeModel", ca);
@@ -1337,6 +1403,41 @@ void LevelSetReinitializationData::setup(const char *name, ClassAssigner *father
 
 //------------------------------------------------------------------------------
 
+PrescribedMotionData::PrescribedMotionData()
+{
+  materialid = -1;
+
+  velocity_x = 0.0;
+  velocity_y = 0.0;
+  velocity_z = 0.0;
+
+  velocity_time_history = "";
+}
+
+//------------------------------------------------------------------------------
+
+Assigner *PrescribedMotionData::getAssigner()
+{
+  ClassAssigner *ca = new ClassAssigner("normal", 5, nullAssigner);
+
+  new ClassInt<PrescribedMotionData>(ca, "MaterialID", this, 
+          &PrescribedMotionData::materialid);
+
+  new ClassDouble<PrescribedMotionData>(ca, "VelocityX", this, 
+          &PrescribedMotionData::velocity_x);
+  new ClassDouble<PrescribedMotionData>(ca, "VelocityY", this, 
+          &PrescribedMotionData::velocity_y);
+  new ClassDouble<PrescribedMotionData>(ca, "VelocityZ", this, 
+          &PrescribedMotionData::velocity_z);
+
+  new ClassStr<PrescribedMotionData>(ca, "VelocityTimeHistoryFile", this, 
+          &PrescribedMotionData::velocity_time_history);
+
+  return ca;
+}
+
+//------------------------------------------------------------------------------
+
 LevelSetSchemeData::LevelSetSchemeData() 
 {
   materialid = -1;
@@ -1426,13 +1527,16 @@ SchemesData::SchemesData()
 void SchemesData::setup(const char *name, ClassAssigner *father)
 {
 
-  ClassAssigner *ca = new ClassAssigner(name, 3, father);
+  ClassAssigner *ca = new ClassAssigner(name, 4, father);
 
   ns.setup("NavierStokes", ca);
 
   bc.setup("Boundaries", ca);
 
   ls.setup("LevelSet", ca);
+
+  pm.setup("PrescribedMotion", ca);
+
 }
 
 //------------------------------------------------------------------------------
