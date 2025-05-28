@@ -1,0 +1,1292 @@
+[0;32m==========================================[0m
+[0;32m                 START                    [0m
+[0;32m==========================================[0m
+
+- Initializing non-ideal Saha Equation solver for material 0.
+  o Found chemical element with atomic number 2, molar mass 4.002602e-03, and molar fraction 3.000000e-01.
+    * Read ionization energy file AtomicData_kg_m_s_K_A/I_2.txt: 2 energy values.
+    * Read 2 excitation energy files: AtomicData_kg_m_s_K_A/E_2_X.txt. Max excited state: 192.
+    * Read 2 degeneracy files: AtomicData_kg_m_s_K_A/g_2_X.txt. Max excited state: 192.
+  o Found chemical element with atomic number 10, molar mass 2.017970e-02, and molar fraction 1.000000e-01.
+    * Read ionization energy file AtomicData_kg_m_s_K_A/I_10.txt: 10 energy values.
+    * Read 10 excitation energy files: AtomicData_kg_m_s_K_A/E_10_X.txt. Max excited state: 363.
+    * Read 10 degeneracy files: AtomicData_kg_m_s_K_A/g_10_X.txt. Max excited state: 363.
+  o Found chemical element with atomic number 18, molar mass 3.994800e-02, and molar fraction 6.000000e-01.
+    * Read ionization energy file AtomicData_kg_m_s_K_A/I_18.txt: 18 energy values.
+    * Read 18 excitation energy files: AtomicData_kg_m_s_K_A/E_18_X.txt. Max excited state: 426.
+    * Read 18 degeneracy files: AtomicData_kg_m_s_K_A/g_18_X.txt. Max excited state: 426.
+Solving the Saha Ionization Equation...
+Input: density = 1.000000e-06, pressure = 4.580076e+01 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.367744152537e+00, 1/lambD = 1.452394597001e+06.
+
+Solution: Zav = 4.367744e+00, Nh = 2.215036e+19, Ne = 9.674711e+19.
+Solving the Saha Ionization Equation...
+Input: density = 1.202264e-06, pressure = 5.506462e+01 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 2 iterations, Zav = 4.337039380111e+00, 1/lambD = 1.581698453309e+06.
+
+Solution: Zav = 4.337039e+00, Nh = 2.663059e+19, Ne = 1.154979e+20.
+Solving the Saha Ionization Equation...
+Input: density = 1.445440e-06, pressure = 6.620224e+01 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.305227501050e+00, 1/lambD = 1.721971192377e+06.
+
+Solution: Zav = 4.305228e+00, Nh = 3.201701e+19, Ne = 1.378405e+20.
+Solving the Saha Ionization Equation...
+Input: density = 1.737801e-06, pressure = 7.959260e+01 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.272618291545e+00, 1/lambD = 1.874205565912e+06.
+
+Solution: Zav = 4.272618e+00, Nh = 3.849292e+19, Ne = 1.644655e+20.
+Solving the Saha Ionization Equation...
+Input: density = 2.089296e-06, pressure = 9.569135e+01 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.239559490189e+00, 1/lambD = 2.039525113511e+06.
+
+Solution: Zav = 4.239559e+00, Nh = 4.627866e+19, Ne = 1.962012e+20.
+Solving the Saha Ionization Equation...
+Input: density = 2.511886e-06, pressure = 1.150463e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 2 iterations, Zav = 4.206412918050e+00, 1/lambD = 2.219197723100e+06.
+
+Solution: Zav = 4.206413e+00, Nh = 5.563919e+19, Ne = 2.340414e+20.
+Solving the Saha Ionization Equation...
+Input: density = 3.019952e-06, pressure = 1.383161e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.173529251106e+00, 1/lambD = 2.414646353153e+06.
+
+Solution: Zav = 4.173529e+00, Nh = 6.689302e+19, Ne = 2.791800e+20.
+Solving the Saha Ionization Equation...
+Input: density = 3.630781e-06, pressure = 1.662925e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.141223896303e+00, 1/lambD = 2.627456264678e+06.
+
+Solution: Zav = 4.141224e+00, Nh = 8.042310e+19, Ne = 3.330501e+20.
+Solving the Saha Ionization Equation...
+Input: density = 4.365158e-06, pressure = 1.999276e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.109756199444e+00, 1/lambD = 2.859378498336e+06.
+
+Solution: Zav = 4.109756e+00, Nh = 9.668984e+19, Ne = 3.973716e+20.
+Solving the Saha Ionization Equation...
+Input: density = 5.248075e-06, pressure = 2.403658e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.079313694652e+00, 1/lambD = 3.112329745974e+06.
+
+Solution: Zav = 4.079314e+00, Nh = 1.162467e+20, Ne = 4.742070e+20.
+Solving the Saha Ionization Equation...
+Input: density = 6.309573e-06, pressure = 2.889833e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.050002412785e+00, 1/lambD = 3.388389142453e+06.
+
+Solution: Zav = 4.050002e+00, Nh = 1.397593e+20, Ne = 5.660256e+20.
+Solving the Saha Ionization Equation...
+Input: density = 7.585776e-06, pressure = 3.474343e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 4.021843546493e+00, 1/lambD = 3.689792796800e+06.
+
+Solution: Zav = 4.021844e+00, Nh = 1.680277e+20, Ne = 6.757810e+20.
+Solving the Saha Ionization Equation...
+Input: density = 9.120108e-06, pressure = 4.177079e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.994776139384e+00, 1/lambD = 4.018927074330e+06.
+
+Solution: Zav = 3.994776e+00, Nh = 2.020137e+20, Ne = 8.069995e+20.
+Solving the Saha Ionization Equation...
+Input: density = 1.096478e-05, pressure = 5.021953e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.968665006898e+00, 1/lambD = 4.378321752196e+06.
+
+Solution: Zav = 3.968665e+00, Nh = 2.428739e+20, Ne = 9.638851e+20.
+Solving the Saha Ionization Equation...
+Input: density = 1.318257e-05, pressure = 6.037716e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.943312841336e+00, 1/lambD = 4.770644248395e+06.
+
+Solution: Zav = 3.943313e+00, Nh = 2.919986e+20, Ne = 1.151442e+21.
+Solving the Saha Ionization Equation...
+Input: density = 1.584893e-05, pressure = 7.258931e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.918475383303e+00, 1/lambD = 5.198696234343e+06.
+
+Solution: Zav = 3.918475e+00, Nh = 3.510596e+20, Ne = 1.375618e+21.
+Solving the Saha Ionization Equation...
+Input: density = 1.905461e-05, pressure = 8.727155e+02 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.893878615500e+00, 1/lambD = 5.665414138245e+06.
+
+Solution: Zav = 3.893879e+00, Nh = 4.220664e+20, Ne = 1.643475e+21.
+Solving the Saha Ionization Equation...
+Input: density = 2.290868e-05, pressure = 1.049235e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.869237054914e+00, 1/lambD = 6.173875347100e+06.
+
+Solution: Zav = 3.869237e+00, Nh = 5.074355e+20, Ne = 1.963388e+21.
+Solving the Saha Ionization Equation...
+Input: density = 2.754229e-05, pressure = 1.261458e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.844272322872e+00, 1/lambD = 6.727312272796e+06.
+
+Solution: Zav = 3.844272e+00, Nh = 6.100716e+20, Ne = 2.345281e+21.
+Solving the Saha Ionization Equation...
+Input: density = 3.311311e-05, pressure = 1.516606e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.818731186382e+00, 1/lambD = 7.329136741884e+06.
+
+Solution: Zav = 3.818731e+00, Nh = 7.334674e+20, Ne = 2.800915e+21.
+Solving the Saha Ionization Equation...
+Input: density = 3.981072e-05, pressure = 1.823361e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.792402175727e+00, 1/lambD = 7.982977217266e+06.
+
+Solution: Zav = 3.792402e+00, Nh = 8.818218e+20, Ne = 3.344223e+21.
+Solving the Saha Ionization Equation...
+Input: density = 4.786301e-05, pressure = 2.192162e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.765129725986e+00, 1/lambD = 8.692730959242e+06.
+
+Solution: Zav = 3.765130e+00, Nh = 1.060183e+21, Ne = 3.991726e+21.
+Solving the Saha Ionization Equation...
+Input: density = 5.754399e-05, pressure = 2.635559e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.736824647404e+00, 1/lambD = 9.462632218177e+06.
+
+Solution: Zav = 3.736825e+00, Nh = 1.274620e+21, Ne = 4.763032e+21.
+Solving the Saha Ionization Equation...
+Input: density = 6.918310e-05, pressure = 3.168638e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.707469710215e+00, 1/lambD = 1.029733586950e+07.
+
+Solution: Zav = 3.707470e+00, Nh = 1.532431e+21, Ne = 5.681440e+21.
+Solving the Saha Ionization Equation...
+Input: density = 8.317638e-05, pressure = 3.809541e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.677119330975e+00, 1/lambD = 1.120201367412e+07.
+
+Solution: Zav = 3.677119e+00, Nh = 1.842387e+21, Ne = 6.774676e+21.
+Solving the Saha Ionization Equation...
+Input: density = 1.000000e-04, pressure = 4.580076e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.645892815512e+00, 1/lambD = 1.218245788507e+07.
+
+Solution: Zav = 3.645893e+00, Nh = 2.215036e+21, Ne = 8.075784e+21.
+Solving the Saha Ionization Equation...
+Input: density = 1.202264e-04, pressure = 5.506462e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.613961318584e+00, 1/lambD = 1.324518469493e+07.
+
+Solution: Zav = 3.613961e+00, Nh = 2.663059e+21, Ne = 9.624193e+21.
+Solving the Saha Ionization Equation...
+Input: density = 1.445440e-04, pressure = 6.620224e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.581529472626e+00, 1/lambD = 1.439752847193e+07.
+
+Solution: Zav = 3.581529e+00, Nh = 3.201701e+21, Ne = 1.146699e+22.
+Solving the Saha Ionization Equation...
+Input: density = 1.737801e-04, pressure = 7.959260e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.548813491240e+00, 1/lambD = 1.564771759991e+07.
+
+Solution: Zav = 3.548813e+00, Nh = 3.849292e+21, Ne = 1.366042e+22.
+Solving the Saha Ionization Equation...
+Input: density = 2.089296e-04, pressure = 9.569135e+03 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.516017978581e+00, 1/lambD = 1.700492361323e+07.
+
+Solution: Zav = 3.516018e+00, Nh = 4.627866e+21, Ne = 1.627166e+22.
+Solving the Saha Ionization Equation...
+Input: density = 2.511886e-04, pressure = 1.150463e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.483314023667e+00, 1/lambD = 1.847927813908e+07.
+
+Solution: Zav = 3.483314e+00, Nh = 5.563919e+21, Ne = 1.938088e+22.
+Solving the Saha Ionization Equation...
+Input: density = 3.019952e-04, pressure = 1.383161e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.450820922130e+00, 1/lambD = 2.008185567979e+07.
+
+Solution: Zav = 3.450821e+00, Nh = 6.689302e+21, Ne = 2.308358e+22.
+Solving the Saha Ionization Equation...
+Input: density = 3.630781e-04, pressure = 1.662925e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.418593393459e+00, 1/lambD = 2.182462454504e+07.
+
+Solution: Zav = 3.418593e+00, Nh = 8.042310e+21, Ne = 2.749339e+22.
+Solving the Saha Ionization Equation...
+Input: density = 4.365158e-04, pressure = 1.999276e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.386615430046e+00, 1/lambD = 2.372037236709e+07.
+
+Solution: Zav = 3.386615e+00, Nh = 9.668984e+21, Ne = 3.274513e+22.
+Solving the Saha Ionization Equation...
+Input: density = 5.248075e-04, pressure = 2.403658e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.354801099737e+00, 1/lambD = 2.578261606162e+07.
+
+Solution: Zav = 3.354801e+00, Nh = 1.162467e+22, Ne = 3.899847e+22.
+Solving the Saha Ionization Equation...
+Input: density = 6.309573e-04, pressure = 2.889833e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.323001863145e+00, 1/lambD = 2.802550844482e+07.
+
+Solution: Zav = 3.323002e+00, Nh = 1.397593e+22, Ne = 4.644205e+22.
+Solving the Saha Ionization Equation...
+Input: density = 7.585776e-04, pressure = 3.474343e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.291019364130e+00, 1/lambD = 3.046375489854e+07.
+
+Solution: Zav = 3.291019e+00, Nh = 1.680277e+22, Ne = 5.529823e+22.
+Solving the Saha Ionization Equation...
+Input: density = 9.120108e-04, pressure = 4.177079e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.258622268175e+00, 1/lambD = 3.311255371766e+07.
+
+Solution: Zav = 3.258622e+00, Nh = 2.020137e+22, Ne = 6.582863e+22.
+Solving the Saha Ionization Equation...
+Input: density = 1.096478e-03, pressure = 5.021953e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.225565584902e+00, 1/lambD = 3.598757367251e+07.
+
+Solution: Zav = 3.225566e+00, Nh = 2.428739e+22, Ne = 7.834056e+22.
+Solving the Saha Ionization Equation...
+Input: density = 1.318257e-03, pressure = 6.037716e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.191610647327e+00, 1/lambD = 3.910497976751e+07.
+
+Solution: Zav = 3.191611e+00, Nh = 2.919986e+22, Ne = 9.319459e+22.
+Solving the Saha Ionization Equation...
+Input: density = 1.584893e-03, pressure = 7.258931e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.156545029959e+00, 1/lambD = 4.248152371655e+07.
+
+Solution: Zav = 3.156545e+00, Nh = 3.510596e+22, Ne = 1.108135e+23.
+Solving the Saha Ionization Equation...
+Input: density = 1.905461e-03, pressure = 8.727155e+04 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.120199296283e+00, 1/lambD = 4.613470064701e+07.
+
+Solution: Zav = 3.120199e+00, Nh = 4.220664e+22, Ne = 1.316931e+23.
+Solving the Saha Ionization Equation...
+Input: density = 2.290868e-03, pressure = 1.049235e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.082481256823e+00, 1/lambD = 5.008312251223e+07.
+
+Solution: Zav = 3.082481e+00, Nh = 5.074355e+22, Ne = 1.564160e+23.
+Solving the Saha Ionization Equation...
+Input: density = 2.754229e-03, pressure = 1.261458e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 3.043332508040e+00, 1/lambD = 5.434650709555e+07.
+
+Solution: Zav = 3.043333e+00, Nh = 6.100716e+22, Ne = 1.856651e+23.
+Solving the Saha Ionization Equation...
+Input: density = 3.311311e-03, pressure = 1.516606e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 3.002785514540e+00, 1/lambD = 5.894639194168e+07.
+
+Solution: Zav = 3.002786e+00, Nh = 7.334674e+22, Ne = 2.202445e+23.
+Solving the Saha Ionization Equation...
+Input: density = 3.981072e-03, pressure = 1.823361e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 2.960925973433e+00, 1/lambD = 6.390634101085e+07.
+
+Solution: Zav = 2.960926e+00, Nh = 8.818218e+22, Ne = 2.611009e+23.
+Solving the Saha Ionization Equation...
+Input: density = 4.786301e-03, pressure = 2.192162e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.917975485809e+00, 1/lambD = 6.925328970654e+07.
+
+Solution: Zav = 2.917975e+00, Nh = 1.060183e+23, Ne = 3.093588e+23.
+Solving the Saha Ionization Equation...
+Input: density = 5.754399e-03, pressure = 2.635559e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.874151174701e+00, 1/lambD = 7.501700302301e+07.
+
+Solution: Zav = 2.874151e+00, Nh = 1.274620e+23, Ne = 3.663451e+23.
+Solving the Saha Ionization Equation...
+Input: density = 6.918310e-03, pressure = 3.168638e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.829719938664e+00, 1/lambD = 8.123118124136e+07.
+
+Solution: Zav = 2.829720e+00, Nh = 1.532431e+23, Ne = 4.336349e+23.
+Solving the Saha Ionization Equation...
+Input: density = 8.317638e-03, pressure = 3.809541e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.785039970418e+00, 1/lambD = 8.793492471483e+07.
+
+Solution: Zav = 2.785040e+00, Nh = 1.842387e+23, Ne = 5.131121e+23.
+Solving the Saha Ionization Equation...
+Input: density = 1.000000e-02, pressure = 4.580076e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 3 iterations, Zav = 2.740610756689e+00, 1/lambD = 9.517346850742e+07.
+
+Solution: Zav = 2.740611e+00, Nh = 2.215036e+23, Ne = 6.070552e+23.
+Solving the Saha Ionization Equation...
+Input: density = 1.202264e-02, pressure = 5.506462e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.696431958681e+00, 1/lambD = 1.029935373235e+08.
+
+Solution: Zav = 2.696432e+00, Nh = 2.663059e+23, Ne = 7.180758e+23.
+Solving the Saha Ionization Equation...
+Input: density = 1.445440e-02, pressure = 6.620224e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.652893346593e+00, 1/lambD = 1.114508628152e+08.
+
+Solution: Zav = 2.652893e+00, Nh = 3.201701e+23, Ne = 8.493772e+23.
+Solving the Saha Ionization Equation...
+Input: density = 1.737801e-02, pressure = 7.959260e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.610710832573e+00, 1/lambD = 1.206128238436e+08.
+
+Solution: Zav = 2.610711e+00, Nh = 3.849292e+23, Ne = 1.004939e+24.
+Solving the Saha Ionization Equation...
+Input: density = 2.089296e-02, pressure = 9.569135e+05 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.569281355629e+00, 1/lambD = 1.305368233263e+08.
+
+Solution: Zav = 2.569281e+00, Nh = 4.627866e+23, Ne = 1.189029e+24.
+Solving the Saha Ionization Equation...
+Input: density = 2.511886e-02, pressure = 1.150463e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.529079587270e+00, 1/lambD = 1.413001327079e+08.
+
+Solution: Zav = 2.529080e+00, Nh = 5.563919e+23, Ne = 1.407159e+24.
+Solving the Saha Ionization Equation...
+Input: density = 3.019952e-02, pressure = 1.383161e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.490881379739e+00, 1/lambD = 1.529925347219e+08.
+
+Solution: Zav = 2.490881e+00, Nh = 6.689302e+23, Ne = 1.666226e+24.
+Solving the Saha Ionization Equation...
+Input: density = 3.630781e-02, pressure = 1.662925e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.453435984829e+00, 1/lambD = 1.656801460834e+08.
+
+Solution: Zav = 2.453436e+00, Nh = 8.042310e+23, Ne = 1.973129e+24.
+Solving the Saha Ionization Equation...
+Input: density = 4.365158e-02, pressure = 1.999276e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.416977254379e+00, 1/lambD = 1.794497862584e+08.
+
+Solution: Zav = 2.416977e+00, Nh = 9.668984e+23, Ne = 2.336971e+24.
+Solving the Saha Ionization Equation...
+Input: density = 5.248075e-02, pressure = 2.403658e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.382539569726e+00, 1/lambD = 1.944194945520e+08.
+
+Solution: Zav = 2.382540e+00, Nh = 1.162467e+24, Ne = 2.769625e+24.
+Solving the Saha Ionization Equation...
+Input: density = 6.309573e-02, pressure = 2.889833e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.348069751371e+00, 1/lambD = 2.106411376213e+08.
+
+Solution: Zav = 2.348070e+00, Nh = 1.397593e+24, Ne = 3.281647e+24.
+Solving the Saha Ionization Equation...
+Input: density = 7.585776e-02, pressure = 3.474343e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.314099615493e+00, 1/lambD = 2.282249577959e+08.
+
+Solution: Zav = 2.314100e+00, Nh = 1.680277e+24, Ne = 3.888328e+24.
+Solving the Saha Ionization Equation...
+Input: density = 9.120108e-02, pressure = 4.177079e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.280544634287e+00, 1/lambD = 2.472770689924e+08.
+
+Solution: Zav = 2.280545e+00, Nh = 2.020137e+24, Ne = 4.607013e+24.
+Solving the Saha Ionization Equation...
+Input: density = 1.096478e-01, pressure = 5.021953e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 2.248623558896e+00, 1/lambD = 2.679469938773e+08.
+
+Solution: Zav = 2.248624e+00, Nh = 2.428739e+24, Ne = 5.461319e+24.
+Solving the Saha Ionization Equation...
+Input: density = 1.318257e-01, pressure = 6.037716e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.215309607830e+00, 1/lambD = 2.902382659364e+08.
+
+Solution: Zav = 2.215310e+00, Nh = 2.919986e+24, Ne = 6.468674e+24.
+Solving the Saha Ionization Equation...
+Input: density = 1.584893e-01, pressure = 7.258931e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.182499432763e+00, 1/lambD = 3.143860081868e+08.
+
+Solution: Zav = 2.182499e+00, Nh = 3.510596e+24, Ne = 7.661873e+24.
+Solving the Saha Ionization Equation...
+Input: density = 1.905461e-01, pressure = 8.727155e+06 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.148733234809e+00, 1/lambD = 3.403835359336e+08.
+
+Solution: Zav = 2.148733e+00, Nh = 4.220664e+24, Ne = 9.069082e+24.
+Solving the Saha Ionization Equation...
+Input: density = 2.290868e-01, pressure = 1.049235e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.115246043267e+00, 1/lambD = 3.684945135222e+08.
+
+Solution: Zav = 2.115246e+00, Nh = 5.074355e+24, Ne = 1.073351e+25.
+Solving the Saha Ionization Equation...
+Input: density = 2.754229e-01, pressure = 1.261458e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 6 iterations, Zav = 2.084824874933e+00, 1/lambD = 3.990540952073e+08.
+
+Solution: Zav = 2.084825e+00, Nh = 6.100716e+24, Ne = 1.271892e+25.
+Solving the Saha Ionization Equation...
+Input: density = 3.311311e-01, pressure = 1.516606e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 5 iterations, Zav = 2.050202688300e+00, 1/lambD = 4.316497209927e+08.
+
+Solution: Zav = 2.050203e+00, Nh = 7.334674e+24, Ne = 1.503757e+25.
+Solving the Saha Ionization Equation...
+Input: density = 3.981072e-01, pressure = 1.823361e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 8 iterations, Zav = 2.015463864624e+00, 1/lambD = 4.667793622358e+08.
+
+Solution: Zav = 2.015464e+00, Nh = 8.818218e+24, Ne = 1.777280e+25.
+Solving the Saha Ionization Equation...
+Input: density = 4.786301e-01, pressure = 2.192162e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.981555227965e+00, 1/lambD = 5.048151323948e+08.
+
+Solution: Zav = 1.981555e+00, Nh = 1.060183e+25, Ne = 2.100811e+25.
+Solving the Saha Ionization Equation...
+Input: density = 5.754399e-01, pressure = 2.635559e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 13 iterations, Zav = 1.949329668448e+00, 1/lambD = 5.461557096783e+08.
+
+Solution: Zav = 1.949330e+00, Nh = 1.274620e+25, Ne = 2.484655e+25.
+Solving the Saha Ionization Equation...
+Input: density = 6.918310e-01, pressure = 3.168638e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 4 iterations, Zav = 1.914209581547e+00, 1/lambD = 5.901735568954e+08.
+
+Solution: Zav = 1.914210e+00, Nh = 1.532431e+25, Ne = 2.933393e+25.
+Solving the Saha Ionization Equation...
+Input: density = 8.317638e-01, pressure = 3.809541e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 16 iterations, Zav = 1.884562766070e+00, 1/lambD = 6.383287973646e+08.
+
+Solution: Zav = 1.884563e+00, Nh = 1.842387e+25, Ne = 3.472094e+25.
+Solving the Saha Ionization Equation...
+Input: density = 1.000000e+00, pressure = 4.580076e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.850688831177e+00, 1/lambD = 6.897654565115e+08.
+
+Solution: Zav = 1.850689e+00, Nh = 2.215036e+25, Ne = 4.099343e+25.
+Solving the Saha Ionization Equation...
+Input: density = 1.202264e+00, pressure = 5.506462e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.818962019213e+00, 1/lambD = 7.458258320245e+08.
+
+Solution: Zav = 1.818962e+00, Nh = 2.663059e+25, Ne = 4.844004e+25.
+Solving the Saha Ionization Equation...
+Input: density = 1.445440e+00, pressure = 6.620224e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 15 iterations, Zav = 1.789618384334e+00, 1/lambD = 8.071699874456e+08.
+
+Solution: Zav = 1.789618e+00, Nh = 3.201701e+25, Ne = 5.729824e+25.
+Solving the Saha Ionization Equation...
+Input: density = 1.737801e+00, pressure = 7.959260e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 8 iterations, Zav = 1.757296226389e+00, 1/lambD = 8.724784084441e+08.
+
+Solution: Zav = 1.757296e+00, Nh = 3.849292e+25, Ne = 6.764346e+25.
+Solving the Saha Ionization Equation...
+Input: density = 2.089296e+00, pressure = 9.569135e+07 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 17 iterations, Zav = 1.726453139460e+00, 1/lambD = 9.434884299020e+08.
+
+Solution: Zav = 1.726453e+00, Nh = 4.627866e+25, Ne = 7.989795e+25.
+Solving the Saha Ionization Equation...
+Input: density = 2.511886e+00, pressure = 1.150463e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 6 iterations, Zav = 1.696414209430e+00, 1/lambD = 1.020681695344e+09.
+
+Solution: Zav = 1.696414e+00, Nh = 5.563919e+25, Ne = 9.438712e+25.
+Solving the Saha Ionization Equation...
+Input: density = 3.019952e+00, pressure = 1.383161e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 11 iterations, Zav = 1.671675201015e+00, 1/lambD = 1.105352236302e+09.
+
+Solution: Zav = 1.671675e+00, Nh = 6.689302e+25, Ne = 1.118234e+26.
+Solving the Saha Ionization Equation...
+Input: density = 3.630781e+00, pressure = 1.662925e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 22 iterations, Zav = 1.644532936666e+00, 1/lambD = 1.196424896500e+09.
+
+Solution: Zav = 1.644533e+00, Nh = 8.042310e+25, Ne = 1.322584e+26.
+Solving the Saha Ionization Equation...
+Input: density = 4.365158e+00, pressure = 1.999276e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 8 iterations, Zav = 1.621523735919e+00, 1/lambD = 1.298040550829e+09.
+
+Solution: Zav = 1.621524e+00, Nh = 9.668984e+25, Ne = 1.567849e+26.
+Solving the Saha Ionization Equation...
+Input: density = 5.248075e+00, pressure = 2.403658e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 19 iterations, Zav = 1.595254086563e+00, 1/lambD = 1.405925330011e+09.
+
+Solution: Zav = 1.595254e+00, Nh = 1.162467e+26, Ne = 1.854431e+26.
+Solving the Saha Ionization Equation...
+Input: density = 6.309573e+00, pressure = 2.889833e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.570228153652e+00, 1/lambD = 1.524321603082e+09.
+
+Solution: Zav = 1.570228e+00, Nh = 1.397593e+26, Ne = 2.194540e+26.
+Solving the Saha Ionization Equation...
+Input: density = 7.585776e+00, pressure = 3.474343e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 18 iterations, Zav = 1.544857255139e+00, 1/lambD = 1.652539755668e+09.
+
+Solution: Zav = 1.544857e+00, Nh = 1.680277e+26, Ne = 2.595788e+26.
+Solving the Saha Ionization Equation...
+Input: density = 9.120108e+00, pressure = 4.177079e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 21 iterations, Zav = 1.521600150152e+00, 1/lambD = 1.793606439956e+09.
+
+Solution: Zav = 1.521600e+00, Nh = 2.020137e+26, Ne = 3.073841e+26.
+Solving the Saha Ionization Equation...
+Input: density = 1.096478e+01, pressure = 5.021953e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 8 iterations, Zav = 1.501796730978e+00, 1/lambD = 1.949431799809e+09.
+
+Solution: Zav = 1.501797e+00, Nh = 2.428739e+26, Ne = 3.647472e+26.
+Solving the Saha Ionization Equation...
+Input: density = 1.318257e+01, pressure = 6.037716e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+-- Non-Ideal Saha equation solver terminated in 15 iterations, Zav = 1.478291770432e+00, 1/lambD = 2.115781281929e+09.
+
+Solution: Zav = 1.478292e+00, Nh = 2.919986e+26, Ne = 4.316592e+26.
+Solving the Saha Ionization Equation...
+Input: density = 1.584893e+01, pressure = 7.258931e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.584724e-18, I = 6.526466e-18.[0m
+-- Non-Ideal Saha equation solver terminated in 11 iterations, Zav = 1.458765525880e+00, 1/lambD = 2.299414882064e+09.
+
+Solution: Zav = 1.458766e+00, Nh = 3.510596e+26, Ne = 5.121136e+26.
+Solving the Saha Ionization Equation...
+Input: density = 1.905461e+01, pressure = 8.727155e+08 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.645353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 6.968030e-18, I = 6.526466e-18.[0m
+-- Non-Ideal Saha equation solver terminated in 17 iterations, Zav = 1.443375803174e+00, 1/lambD = 2.506514612034e+09.
+
+Solution: Zav = 1.443376e+00, Nh = 4.220664e+26, Ne = 6.092005e+26.
+Solving the Saha Ionization Equation...
+Input: density = 2.290868e+01, pressure = 1.049235e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 4.906529e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.359793e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 9.813057e-18, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.226632e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.471959e-17, I = 1.462627e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 9 iterations, Zav = 1.425159421902e+00, 1/lambD = 2.727078919719e+09.
+
+Solution: Zav = 1.425159e+00, Nh = 5.074355e+26, Ne = 7.231764e+26.
+Solving the Saha Ionization Equation...
+Input: density = 2.754229e+01, pressure = 1.261458e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.586177e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.172353e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 7.758530e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.034471e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.293088e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.551706e-17, I = 1.462627e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.417665051388e+00, 1/lambD = 2.980003628479e+09.
+
+Solution: Zav = 1.417665e+00, Nh = 6.100716e+26, Ne = 8.648772e+26.
+Solving the Saha Ionization Equation...
+Input: density = 3.311311e+01, pressure = 1.516606e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.720882e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.441763e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.162645e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.088353e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.360441e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.632529e-17, I = 1.462627e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 7 iterations, Zav = 1.415439098989e+00, 1/lambD = 3.270875230962e+09.
+
+Solution: Zav = 1.415439e+00, Nh = 7.334674e+26, Ne = 1.038178e+27.
+Solving the Saha Ionization Equation...
+Input: density = 3.981072e+01, pressure = 1.823361e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.856818e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.713637e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.570455e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.142727e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.428409e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.714091e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 1.999773e-17, I = 1.993268e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 11 iterations, Zav = 1.419382967303e+00, 1/lambD = 3.604709590071e+09.
+
+Solution: Zav = 1.419383e+00, Nh = 8.818218e+26, Ne = 1.251643e+27.
+Solving the Saha Ionization Equation...
+Input: density = 4.786301e+01, pressure = 2.192162e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 2.993407e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 5.986814e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 8.980221e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.197363e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.496703e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.796044e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.095385e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.394726e-17, I = 2.298430e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 18 iterations, Zav = 1.441235345131e+00, 1/lambD = 4.005434557391e+09.
+
+Solution: Zav = 1.441235e+00, Nh = 1.060183e+27, Ne = 1.527973e+27.
+Solving the Saha Ionization Equation...
+Input: density = 5.754399e+01, pressure = 2.635559e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.130057e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.260114e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.390172e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.252023e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.565029e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.878034e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.191040e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.504046e-17, I = 2.298430e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 9 iterations, Zav = 1.450825353942e+00, 1/lambD = 4.430850748658e+09.
+
+Solution: Zav = 1.450825e+00, Nh = 1.274620e+27, Ne = 1.849251e+27.
+Solving the Saha Ionization Equation...
+Input: density = 6.918310e+01, pressure = 3.168638e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.266180e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.532360e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 9.798540e-18, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.306472e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.633090e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 1.959708e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.286326e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.612944e-17, I = 2.298430e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 22 iterations, Zav = 1.473185032833e+00, 1/lambD = 4.937144626213e+09.
+
+Solution: Zav = 1.473185e+00, Nh = 1.532431e+27, Ne = 2.257554e+27.
+Solving the Saha Ionization Equation...
+Input: density = 8.317638e+01, pressure = 3.809541e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 6.802393e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.020359e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.401196e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 6.802393e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.020359e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.360479e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.700598e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.040718e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.380837e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.720957e-17, I = 2.298430e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 10 iterations, Zav = 1.485295557323e+00, 1/lambD = 5.474765168366e+09.
+
+Solution: Zav = 1.485296e+00, Nh = 1.842387e+27, Ne = 2.736489e+27.
+Solving the Saha Ionization Equation...
+Input: density = 1.000000e+02, pressure = 4.580076e+09 (MaterialID: 0).
+By EOS: e = 6.870114e+07.
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 3.455020e-18: [j, r] = [1, 0], deltaI before truncation = 3.534548e-18, I = 3.455020e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.562991e-18: [j, r] = [1, 1], deltaI before truncation = 7.069095e-18, I = 6.562991e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.016153e-17: [j, r] = [1, 2], deltaI before truncation = 1.060364e-17, I = 1.016153e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.524968e-18: [j, r] = [2, 0], deltaI before truncation = 3.534548e-18, I = 2.524968e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 4.426761e-18: [j, r] = [2, 1], deltaI before truncation = 7.069095e-18, I = 4.426761e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 6.526466e-18: [j, r] = [2, 2], deltaI before truncation = 1.060364e-17, I = 6.526466e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 9.545768e-18: [j, r] = [2, 3], deltaI before truncation = 1.413819e-17, I = 9.545768e-18.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.199069e-17: [j, r] = [2, 4], deltaI before truncation = 1.767274e-17, I = 1.199069e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.462627e-17: [j, r] = [2, 5], deltaI before truncation = 2.120729e-17, I = 1.462627e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 1.993268e-17: [j, r] = [2, 6], deltaI before truncation = 2.474183e-17, I = 1.993268e-17.[0m
+[0;35mWarning: Depression energy (deltaI) is truncated at 2.298430e-17: [j, r] = [2, 7], deltaI before truncation = 2.827638e-17, I = 2.298430e-17.[0m
+-- Non-Ideal Saha equation solver terminated in 10 iterations, Zav = 1.513249589032e+00, 1/lambD = 6.124147232925e+09.
+
+Solution: Zav = 1.513250e+00, Nh = 2.215036e+27, Ne = 3.351903e+27.
+
+[0;32m==========================================[0m
+[0;32m           NORMAL TERMINATION             [0m
+[0;32m==========================================[0m
+Total Computation Time: 0.214927 sec.
+

@@ -146,7 +146,7 @@ AtomicIonizationData::Setup(AtomicIonizationModel* iod_aim, double h_, double e_
   sample_Tmin = sample_Tmin_;
   sample_Tmax = sample_Tmax_;
   sample_size = sample_size_;
-  assert(isfinite(sample_size));
+  assert(std::isfinite(sample_size));
 
   if(interpolation) {
     assert(comm);
@@ -298,14 +298,14 @@ AtomicIonizationData::CalculatePartitionFunctionOnTheFly(int r, double T, double
                        (int)g[r].size());
 
 /*
-  //TEST: TRUNCATION IS IGNORED!
+  //TEST: TRUNCATION IS IGNORED! (KW&SI: THIS IS USED IN He-Ne-Ar TEST)
   int nsize = std::min(g[r].size(), E[r].size());
   //END OF TEST
   
 */
 
 
-  //fprintf(stderr,"I[%d] = %e, nsize = %d, E[%d][%d] = %e, Ieff-E = %e | %e.\n", r, I[r], nsize, r, 
+  //fprintf(stdout,"I[%d] = %e, nsize = %d, E[%d][%d] = %e, Ieff-E = %e | %e.\n", r, I[r], nsize, r, 
   //        nsize-1, E[r][nsize-1],
   //        I[r]-deltaI-E[r][nsize-1], I[r]-deltaI-E[r][std::min(nsize, (int)E[r].size()-1)]);
 

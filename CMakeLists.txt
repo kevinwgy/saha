@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 project(SahaSolver VERSION 1.0)
 
 # specify the C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # build type
@@ -15,6 +15,11 @@ endif()
 # use mpicc and mpicxx to compile
 SET(CMAKE_C_COMPILER mpicc)
 SET(CMAKE_CXX_COMPILER mpicxx)
+
+find_package(Boost 1.72 REQUIRED)
+if(NOT "${Boost_INCLUDE_DIR}" STREQUAL "")
+  include_directories("${Boost_INCLUDE_DIR}")
+endif()
 
 # compiler flags (turn on most of the warnings, except unused variables and parameters
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-reorder")

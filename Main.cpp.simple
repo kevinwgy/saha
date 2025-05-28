@@ -1,9 +1,16 @@
+/************************************************************************
+ * Copyright © 2020 The Multiphysics Modeling and Computation (M2C) Lab
+ * <kevin.wgy@gmail.com> <kevinw3@vt.edu>
+ ************************************************************************/
+
 #include <time.h>
 #include <Utils.h>
 #include <IoData.h>
 #include <VarFcnSG.h>
 #include <VarFcnNASG.h>
 #include <VarFcnMG.h>
+#include <VarFcnMGExt.h>
+#include <VarFcnTillot.h>
 #include <VarFcnJWL.h>
 #include <VarFcnANEOSEx1.h>
 #include <VarFcnDummy.h>
@@ -63,6 +70,10 @@ int main(int argc, char* argv[])
       vf[matid] = new VarFcnNASG(*it->second);
     else if(it->second->eos == MaterialModelData::MIE_GRUNEISEN)
       vf[matid] = new VarFcnMG(*it->second);
+    else if(it->second->eos == MaterialModelData::EXTENDED_MIE_GRUNEISEN)
+      vf[matid] = new VarFcnMGExt(*it->second);
+    else if(it->second->eos == MaterialModelData::TILLOTSON)
+      vf[matid] = new VarFcnTillot(*it->second);
     else if(it->second->eos == MaterialModelData::JWL)
       vf[matid] = new VarFcnJWL(*it->second);
     else if(it->second->eos == MaterialModelData::ANEOS_BIRCH_MURNAGHAN_DEBYE)
@@ -108,8 +119,59 @@ int main(int argc, char* argv[])
       saha[i] = new SahaEquationSolver(iod, vf[i]);
   }
 
-  FILE *sols=fopen("sols.txt", "w+");
-  FILE *alphas=fopen("alphas.txt", "w+");
+  double V[5];
+  int id;
+  V[0] = iod.bc.inlet.density;
+  V[1] = iod.bc.inlet.velocity_x;
+  V[2] = iod.bc.inlet.velocity_y;
+  V[3] = iod.bc.inlet.velocity_z;
+  V[4] = iod.bc.inlet.pressure;
+  id   = iod.bc.inlet.materialid;
+
+  print("Solving the Saha Ionization Equation...\n");
+  print("Input: density = %e, pressure = %e (MaterialID: %d).\n",V[0],V[4],id);
+  double e = vf[id]->GetInternalEnergyPerUnitMass(V[0], V[4]);
+  print("By EOS: e = %e, T = %e.\n", e, vf[id]->GetTemperature(V[0], e));
+
+  int max_charge_in_output = iod.output.max_charge_number;
+
+  std::map<int, vector<double> > nodal_alphas;
+  for(int iSpecies=0; iSpecies<OutputData::MAXSPECIES; iSpecies++) 
+    if(iod.output.molar_fractions[iSpecies] == OutputData::ON) 
+      nodal_alphas[iSpecies] = vector<double>(max_charge_in_output+2);
+
+  double zav, nh, ne;
+
+  saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
+
+
+
+/*
+// Timing
+  auto start = high_resolution_clock::now();
+  for(int counter = 0; counter < 10000; counter++)
+    saha[id]->Solve(V, zav, nh, ne, nodal_alphas);
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+  double cost = duration.count();
+  print(stderr,"cost is %e us.\n", cost);
+*/
+
+  print("\n");
+  print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);
+  for(auto it = nodal_alphas.begin(); it != nodal_alphas.end(); it++) {
+    print("  - Species %d:\n", it->first);
+    for(int i=0; i<(int)it->second.size()-1; i++)
+      print("    o Molar fraction of charged state %d: %e.\n", i, it->second[i]);
+    print("    o Molar fraction of charged state %d+: %e.\n", it->second.size()-1, it->second[it->second.size()-1]);
+  }
+
+
+
+
+/*
+  FILE *sols   = fopen("sols.txt", "w+");
+  FILE *alphas = fopen("alphas.txt", "w+");
 
   if (!sols || !alphas){
     fprintf(stderr, "output file could not be opened \n");
@@ -119,45 +181,32 @@ int main(int argc, char* argv[])
   fprintf(sols, "Density Temperature Nh Zav Ne DebyeLength \n");
   fprintf(alphas, "Density Temperature j r alpha \n");
 
-//NOTE: hack for rho/T
+// hack for rho/T
   double rho = iod.bc.inlet.density; //make input density as rho0
-  double rhof = 1.0e2;
+  double rhof = 1.0e3;
   double npoints = 100.0;
   double drho =  pow(rhof/rho, 1.0/npoints);
   while (rho<=rhof*drho) { //START RHO LOOP
-    int id = iod.bc.inlet.materialid;
-
-    double V[5];
+    double V[6];
+    int id;
     V[0] = rho;
     V[1] = iod.bc.inlet.velocity_x;
     V[2] = iod.bc.inlet.velocity_y;
     V[3] = iod.bc.inlet.velocity_z;
-
-    // Read temperature from input, then compute pressure 
-    // (converted back to temperature in the solver)
-    double T = iod.bc.inlet.temperature;
-    double e = vf[id]->GetInternalEnergyPerUnitMassFromTemperature(V[0], T);
-    V[4] = vf[id]->GetPressure(V[0], e);
-
-    //Verification
-    double ecal = vf[id]->GetInternalEnergyPerUnitMass(V[0],V[4]);
-    double Tcal = vf[id]->GetTemperature(V[0], ecal);
-    if(fabs(T-Tcal)/fabs(T)>1.0e-6) {
-      fprintf(stderr,"Error: Calculated temperature (%e) different from input (%e). Check EOS.\n",
-		      Tcal, T);
-      exit(-1);
-    }
+    V[4] = iod.bc.inlet.pressure;
+    V[5] = iod.bc.inlet.temperature;
+    id   = iod.bc.inlet.materialid;
 
     print("Solving the Saha Ionization Equation...\n");
-    print("Input: density = %e, pressure = %e (MaterialID: %d).\n",V[0],V[4],id);
-    e = vf[id]->GetInternalEnergyPerUnitMass(V[0], V[4]);
-    print("By EOS: e = %e.\n", e);
+    print("Input: density = %e, temperature = %e (MaterialID: %d).\n",V[0],V[5],id);
+    //double e = vf[id]->GetInternalEnergyPerUnitMass(V[0], V[4]);
+    //print("By EOS: e = %e.\n", e);
 
     int max_charge_in_output = iod.output.max_charge_number;
 
     std::map<int, vector<double> > nodal_alphas;
-    for(int iSpecies=0; iSpecies<OutputData::MAXSPECIES; iSpecies++) 
-      if(iod.output.molar_fractions[iSpecies] == OutputData::ON) 
+    for(int iSpecies=0; iSpecies<OutputData::MAXSPECIES; iSpecies++)
+      if(iod.output.molar_fractions[iSpecies] == OutputData::ON)
         nodal_alphas[iSpecies] = vector<double>(max_charge_in_output+2);
 
     double zav, nh, ne, lambda;
@@ -165,25 +214,24 @@ int main(int argc, char* argv[])
 
     print("\n");
     print("Solution: Zav = %e, Nh = %e, Ne = %e.\n", zav, nh, ne);
-    fprintf(sols, "%e %e %e %e %e %e \n", rho, T, nh, zav,  ne, lambda);
+
+    fprintf(sols, "%e %e %e %e %e %e \n", rho, V[5], nh, zav,  ne, lambda);
 
     for(auto it = nodal_alphas.begin(); it != nodal_alphas.end(); it++) {
-//     print("  - Species %d:\n", it->first);
-      for(int i=0; i<(int)it->second.size()-1; i++){
-//        print("    o Molar fraction of charged state %d: %e.\n", i, it->second[i]);
-        fprintf(alphas, "%e %e %d %d %e\n", rho, T, it->first, i, it->second[i]);
-      }
-//      print("    o Molar fraction of charged state %d+: %e.\n", it->second.size()-1, it->second[it->second.size()-1]);
-      fprintf(alphas, "%e %e %d %ld %e\n", rho, T, it->first, it->second.size()-1, it->second[it->second.size()-1]);
+      for(unsigned int i=0; i<it->second.size()-1; i++)
+        fprintf(alphas, "%e %e %d %d %e\n", rho, V[5], it->first, i, it->second[i]);
+      fprintf(alphas, "%e %e %d %ld %e\n", rho, V[5], it->first, it->second.size()-1,
+              it->second[it->second.size()-1]);
     }
 
     rho=rho*drho;
-
   } // end rho loop
 
 
   fclose(sols);
   fclose(alphas);
+
+*/
 
   print("\n");
   print("\033[0;32m==========================================\033[0m\n");
